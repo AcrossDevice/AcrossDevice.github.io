@@ -38,10 +38,10 @@
         <p class="heading  " data-text="Keep  Items From One Device And Access From Other">Keep Items From One Device
             And Access From Other</p>
         <div class="btnholder">
-            <button class="ctabtn">
+            <button class="ctabtn" onclick="navwithparam('requestsignup')">
                 <p>Create An Account </p>
             </button>
-            <button>
+            <button onclick="navwithparam('requestsignin')">
                 <p>Login</p>
             </button>
         </div>
@@ -64,13 +64,13 @@
         <p class="heading">Boost Your Productivity With <Span>Across Device</Span> </p>
         <p class="text">Paste <span>link,text and files</span> from <span>one device </span> and <span>access It from
                 other.</span> </p>
-        <button class="ctabtn">Create An Account</button>
+        <button class="ctabtn" onclick="navwithparam('requestsignup')">Create An Account</button>
     </section>
     <section class="signup navview" id="signupsection">
         <img src="static/singup02.png" alt="" class="illumage">
         <div class="signupsectiondiv">
             <p class="heading">For Keeping Your Items Private</p>
-            <button class="ctabtn">Create An Account</button>
+            <button class="ctabtn" onclick="navwithparam('requestsignup')">Create An Account</button>
         </div>
     </section>
     <footer>
@@ -80,15 +80,15 @@
                 <li><a href="">Home</a></li>
                 <li><a href="">Features</a></li>
                 <li><a href="">Message</a></li>
-                <li><a href="">Create An Account</a></li>
+                <li><a onclick="navwithparam('requestsignup')">Create An Account</a></li>
                 <li><a href="">Contact</a></li>
             </ul>
         </div>
         <div>
             <h1>Authentication</h1>
             <ul>
-                <li><a href="">Sign Up</a></li>
-                <li><a href="">Sign In</a></li>
+                <li><a onclick="navwithparam('requestsignup')">Sign Up</a></li>
+                <li><a onclick="navwithparam('requestsignin')">Sign In</a></li>
             </ul>
         </div>
         <div>
@@ -100,21 +100,6 @@
         </div>
 
     </footer>
-    <!-- <script>
-        // scroll to section
-        function scrolltoelement(sectionID) {
-            const element = document.getElementById(sectionID);
-            element.scrollIntoView({ behavior: 'smooth' })
-        }
-    </script> -->
-    <script>
-        function scrolltoelement(sectionID) {
-            const element = document.getElementById(sectionID);
-            console.log(element);
-            console.log(typeof element);
-            element.scrollIntoView({ behavior: 'smooth' })
-        }
-    </script>
     <script src="script.js"></script>
 </body>
 

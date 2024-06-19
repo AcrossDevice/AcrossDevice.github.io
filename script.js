@@ -1,3 +1,4 @@
+// to handle animations of underlines
 console.log(typeof document.getElementById('hero').id);
 function RemoveActive() {
     document.getElementById('navhome').classList.remove('active');
@@ -35,6 +36,7 @@ targets.forEach(target => {
 })
 
 
+// code to to update navbar
 const callbacknav =(entries,observerofsection)=>{
     entries.forEach(entry=>{
         if (entry.target.id==='hero' && entry.isIntersecting ){
@@ -64,9 +66,15 @@ sections.forEach(section => {
 
 
 // scroll to section
-function scrolltoelement(sectionID){
+function scrolltoelement(sectionID) {
     const element = document.getElementById(sectionID);
     console.log(element);
     console.log(typeof element);
-    element.scrollIntoView({behavior:'smooth'})
- }
+    element.scrollIntoView({ behavior: 'smooth' })
+}
+
+// use parameters while navigating
+function navwithparam(code){
+    const encodedData = encodeURIComponent(code);
+    window.location.href='auth.html?data=${encodedData}';
+}

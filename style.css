@@ -152,3 +152,35 @@ span {
   justify-content: center;
   flex-direction: column;
 }
+
+footer{
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-around;
+  color: white;
+  background-color: black;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+footer > div{
+  padding: 30px 30px;
+}
+footer ul{
+  list-style-type: none;
+}
+footer ul li{
+  margin: 5px 5px;
+}
+footer a{
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+footer >:nth-child(2){
+  border-right: 1px solid gray;
+  border-left: 1px solid gray;
+  padding: 30px 10vw;
+}
