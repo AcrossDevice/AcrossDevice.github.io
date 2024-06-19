@@ -19,17 +19,17 @@
         </div>
         <div>
             <ul>
-                <li><a href="">
+                <li><a onclick="scrolltoelement('hero')">
                         <p id="navhome">Home</p>
                     </a></li>
-                <li><a href="#features">
+                <li><a onclick="scrolltoelement('features')">
                         <p id="navfeatures">Features</p>
                     </a></li>
-                <li><a href="">
+                <li><a onclick="scrolltoelement('ctasection')">
                         <p id="navctasection">Message</p>
                     </a></li>
-                <li><a href="">
-                        <p id="navsignup">Create An Account</p>
+                <li><a onclick="scrolltoelement('signupsection')">
+                        <p id="navsignup" >Create An Account</p>
                     </a></li>
             </ul>
         </div>
@@ -100,6 +100,21 @@
         </div>
 
     </footer>
+    <!-- <script>
+        // scroll to section
+        function scrolltoelement(sectionID) {
+            const element = document.getElementById(sectionID);
+            element.scrollIntoView({ behavior: 'smooth' })
+        }
+    </script> -->
+    <script>
+        function scrolltoelement(sectionID) {
+            const element = document.getElementById(sectionID);
+            console.log(element);
+            console.log(typeof element);
+            element.scrollIntoView({ behavior: 'smooth' })
+        }
+    </script>
     <script src="script.js"></script>
 </body>
 

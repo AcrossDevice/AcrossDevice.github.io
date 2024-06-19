@@ -61,3 +61,12 @@ const sections = document.querySelectorAll('.navview');
 sections.forEach(section => {
     observerofsection.observe(section)
 })
+
+
+// scroll to section
+function scrolltoelement(sectionID){
+    const element = document.getElementById(sectionID);
+    console.log(element);
+    console.log(typeof element);
+    element.scrollIntoView({behavior:'smooth'})
+ }

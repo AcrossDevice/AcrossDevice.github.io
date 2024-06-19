@@ -38,6 +38,7 @@ header div ul li a {
   font-size: 20px;
   color: black;
   text-decoration: none;
+  cursor: pointer;
 }
 .active {
   border-bottom: 2px solid #6c63ff;
