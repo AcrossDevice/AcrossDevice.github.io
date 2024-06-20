@@ -1,0 +1,50 @@
+@media (max-width: 576px) {
+    header{
+        display: none;
+    }
+    .heading{
+        font-size: 40px;
+    }
+    section{
+        padding: 20px 10px;
+    }
+    .btnholder{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .hero > *{
+        margin: 20px 20px;
+    }
+    .features > div{
+        flex-direction: column-reverse;
+    }
+    .illumage{
+        width: 80vw;
+    }
+    .ctasection{
+        padding: 60px 30px;
+    }
+    #signupsection{
+        flex-direction: column;
+    }
+    footer{
+        flex-direction: column;
+    }
+    footer > :nth-child(2){
+        border-top: 1px solid gray;
+        border-left: none;
+        border-right: none;
+        border-bottom: 1px solid gray;
+    }
+    footer a,footer h1{
+        font-family: "Ubuntu", sans-serif;
+    }
+    footer h1{
+        border-bottom: 1px solid white;
+    }
+    footer div{
+        padding: 60px 30px;
+    }
+}

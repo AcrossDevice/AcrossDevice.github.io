@@ -75,6 +75,6 @@ function scrolltoelement(sectionID) {
 
 // use parameters while navigating
 function navwithparam(code){
-    const encodedData = encodeURIComponent(code);
-    window.location.href='auth.html?data=${encodedData}';
+    // const encodedData = encodeURIComponent(code);
+    window.location.href='auth.html?data=${code}';
 }
