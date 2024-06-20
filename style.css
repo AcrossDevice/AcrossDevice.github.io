@@ -19,7 +19,7 @@ header {
 header div {
   padding: 20px 20px;
 }
-header > :last-child {
+header > :nth-child(2) {
   margin-left: auto;
 }
 
@@ -43,6 +43,10 @@ header div ul li a {
 .active {
   border-bottom: 2px solid #6c63ff;
 }
+.menu{
+  display: none;
+}
+
 .heading {
   font-family: "Ubuntu", sans-serif;
   font-size: 70px;
@@ -184,3 +188,4 @@ footer >:nth-child(2){
   border-left: 1px solid gray;
   padding: 30px 10vw;
 }
+

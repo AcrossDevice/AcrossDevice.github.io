@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <header>
+    <header id="header">
         <div>
             <ul>
                 <li>
@@ -30,9 +30,12 @@
                         <p id="navctasection">Message</p>
                     </a></li>
                 <li><a onclick="scrolltoelement('signupsection')">
-                        <p id="navsignup" >Create An Account</p>
+                        <p id="navsignup">Create An Account</p>
                     </a></li>
             </ul>
+        </div>
+        <div class="menu" onclick="menuopen()">
+            <img src="static/menu.png" alt="">
         </div>
     </header>
     <section class="hero navview" id="hero">
@@ -50,7 +53,7 @@
     <section class="features navview" id="features">
         <div>
             <p class="heading navview">Quick access across devices</p>
-            <img src="static/devices.png" alt="" class="illumage">
+            <img src="static/img.png" alt="" class="illumage">
         </div>
         <div>
             <p class="heading navview">Simple Design</p>
@@ -78,9 +81,9 @@
         <div>
             <h1>Useful Links</h1>
             <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">Features</a></li>
-                <li><a href="">Message</a></li>
+                <li><a onclick="scrolltoelement('hero')">Home</a></li>
+                <li><a onclick="scrolltoelement('features')">Features</a></li>
+                <li><a onclick="scrolltoelement('ctasection')">Message</a></li>
                 <li><a onclick="navwithparam('requestsignup')">Create An Account</a></li>
                 <li><a href="">Contact</a></li>
             </ul>
@@ -101,6 +104,19 @@
         </div>
 
     </footer>
+    <script>
+        parameter = true;
+        function menuopen() {
+            if (parameter === true) {
+                document.getElementById('header').style.display = 'block';
+                parameter = false;
+            }
+            else{
+                document.getElementById('header').style.display = 'flex';
+                parameter = true;
+            }
+        }
+    </script>
     <script src="script.js"></script>
 </body>
 
