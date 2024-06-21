@@ -1,20 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="authstyle.css">
 </head>
 <p id="param"></p>
+
 <body>
-    <script>
-        function getURLParameter(name){
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(name);
-        }
-        const data = getURLParameter('data');
-        const decodedData = decodeURIComponent(data);
-        document.getElementById('param').innerHTML= decodedData;
-    </script>
+    <section class="authholder" id="authholder">
+        <img src="static/access.png" alt="">
+        <div>
+            <section id="userpref">
+                <p>
+                    You Want to...
+                </p>
+                <div class="btnholder">
+                    <button onclick="signup()" class="active">Create A New Account</button>
+                    <button onclick="singin()">Log In To An Account</button>
+                </div>
+            </section>
+            <div class="signindiv" id="signindiv">
+                <form action="" method="post">
+                    <h1>Login To Account</h1>
+                    <div>
+                        <label>User Name</label>
+                        <input type="text">
+                        <label>Password</label>
+                        <input type="password"><span class="material-symbols-outlined" id="eyeopen">
+                            visibility
+                        </span><span class="material-symbols-outlined" id="eyeclose">
+                            visibility_off
+                        </span>
+                        <button type="submit">Log In</button>
+                    </div>
+                </form>
+            </div>
+            <div class="signupdiv" id="signupdiv">
+                <h1>Create A Account</h1>
+                <div id="email">
+                    <label for="">Enter Your <snap class="color">Email</snap> :</label>
+                    <p class="red">An Account is already linked with this email , login or use a different email</p>
+                    <input type="email" id="email">
+                    <label for="">Already have An Account ? <span class="color"><a onclick="singin()">Login</a></span></label>
+                </div>
+                <div id="username">
+                    <label for="">Create Your <span class="color">Username</span> :</label>
+                    <p class="red">Username Is already taken !</p>
+                    <input type="text" id="username">
+                </div>
+                <div id="password">
+                    <label for="">Create a <span class="color">Password</span> :</label>
+                    <input type="password">
+                    <span class="material-symbols-outlined" id="eyeopen">
+                        visibility
+                    </span><span class="material-symbols-outlined" id="eyeclose">
+                        visibility_off
+                    </span>
+                </div>
+                <div id="terms">
+                    <label for="">Agree To <span class="color"><a href="">Terms And Conditions</a></span></label>
+                    <button>I Agree</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="auth.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+
+*{
+    box-sizing: border-box;
+    padding: 0px 0px;
+    margin: 0px 0px;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+#userpref{
+    margin: 10px 10px;
+    padding: 20px 20px;
+    box-shadow: 0px 0px 2px 0px;
+    /* border: 1px solid black; */
+    border-radius: 20px;
+}
+#userpref > :first-child{
+    font-size: 30px;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.btnholder{
+    
+}
+.btnholder> *{
+    padding: 20px 10px;
+    margin: 10px 10px;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 15px;
+    border-radius: 5px;
+    background-color: white;
+    border: 1px solid black;
+    cursor: pointer;
+}
+.active{
+    background-color: black;
+    color: white;
+    /* box-shadow: 0px 0px 1px 0px black; */
+}
+
+
+#authholder{
+    flex-direction: row;
+}
+#authholder img{
+    width: 40vw;
+    height: auto;
+}
+#signindiv{
+    box-shadow: 0px 0px 2px 0px;
+    padding: 20px 20px;
+    border-radius: 20px;
+}
+#signupdiv{
+    display: none;
+}
