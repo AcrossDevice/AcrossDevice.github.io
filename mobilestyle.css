@@ -1,19 +1,30 @@
 @media (max-width: 576px) {
     header{
         display: flex;
+        height: fit-content;
+    }
+    header > :first-child{
+        padding: 20px 0px;
     }
     header> :nth-child(2){
         display: none;
+    }
+    header > :nth-child(2) > ul{
+        flex-direction: column;
+    }
+    header > :nth-child(2)>ul>*{
+        margin: 10px 20px;
     }
     header > :last-child{
         display: block;
         margin-left: auto;
         height: 30px;
     }
+    
     header img{
         height: 35px;
-        margin: -4px 0px;
-        padding: 0px 20px;
+        margin: -5px 0px;
+        padding: 0px 10px;
         cursor: pointer;
     }
     .heading{

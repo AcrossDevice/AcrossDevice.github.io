@@ -34,7 +34,7 @@
                     </a></li>
             </ul>
         </div>
-        <div class="menu" onclick="menuopen()">
+        <div class="menu" id="menu" onclick="menuopen()">
             <img src="static/menu.png" alt="">
         </div>
     </header>
@@ -85,7 +85,7 @@
                 <li><a onclick="scrolltoelement('features')">Features</a></li>
                 <li><a onclick="scrolltoelement('ctasection')">Message</a></li>
                 <li><a onclick="navwithparam('requestsignup')">Create An Account</a></li>
-                <li><a href="">Contact</a></li>
+                <!-- <li><a href="">Contact</a></li> -->
             </ul>
         </div>
         <div>
@@ -98,24 +98,14 @@
         <div>
             <h1>Code And Design</h1>
             <ul>
-                <li><a href="https://anuragkumat16.github.io">Anurag Kumar Tiwari</a></li>
-                <li><a href="https://anuragkumat16.github.io">Portfolio</a></li>
+                <li><a href="https://anuragkumart16.github.io/">Anurag Kumar Tiwari</a></li>
+                <li><a href="https://anuragkumart16.github.io">Portfolio</a></li>
             </ul>
         </div>
 
     </footer>
     <script>
-        parameter = true;
-        function menuopen() {
-            if (parameter === true) {
-                document.getElementById('header').style.display = 'block';
-                parameter = false;
-            }
-            else{
-                document.getElementById('header').style.display = 'flex';
-                parameter = true;
-            }
-        }
+        
     </script>
     <script src="script.js"></script>
 </body>
