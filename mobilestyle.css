@@ -2,6 +2,7 @@
     header{
         display: flex;
         height: fit-content;
+        transition: display 0.2s ease;
     }
     header > :first-child{
         padding: 20px 0px;

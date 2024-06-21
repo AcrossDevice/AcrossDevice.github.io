@@ -22,7 +22,7 @@ const callback = (entries, observer) => {
 const options = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.5
+    threshold: 0.7
 }
 
 const observer = new IntersectionObserver(callback, options);
@@ -86,8 +86,12 @@ function scrolltoelement(sectionID) {
 
 // use parameters while navigating
 function navwithparam(code) {
-    const encodedData = encodeURIComponent(code);
-    window.location.href = 'auth.html?data=${encodedData}';
+    if (code === 'requestsignup'){
+        window.location.href='auth.html?data=requestsignup';
+    }
+    else{
+        window.location.href='auth.html?data=requestsignin';
+    }
 }
 
 
@@ -112,5 +116,3 @@ function menuopen() {
         parameter = true;
     }
 }
-
-// funtion to close the navigation bar
