@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Across Device</title>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="authstyle.css">
@@ -43,19 +43,22 @@
                 </div>
                 <div class="signupdiv" id="signupdiv">
                     <h1>Create A Account</h1>
-                    <div id="email">
+                    <div id="emaildiv">
                         <label for="">Enter Your <snap class="color">Email</snap> :</label>
-                        <p class="red">An Account is already linked with this email , login or use a different email</p>
+                        <label class="red">An Account is already linked with this email ,</label >
+                        <label class="red"> login or use a different email</label>
                         <input type="email" id="email">
-                        <label for="">Already have An Account ? <span class="color"><a
-                                    onclick="singin()">Login</a></span></label>
+                        <button type="submit" onclick="submititems('email')">Submit</button>
+                        <label for="">Already have An Account ? <span class="color" onclick="signin()">
+                                    Login</span></label>
                     </div>
-                    <div id="username">
+                    <div id="usernamediv">
                         <label for="">Create Your <span class="color">Username</span> :</label>
                         <p class="red">Username Is already taken !</p>
+                        <button>Submit</button>
                         <input type="text" id="username">
                     </div>
-                    <div id="password">
+                    <div id="passworddiv">
                         <label for="">Create a <span class="color">Password</span> :</label>
                         <input type="password">
                         <span class="material-symbols-outlined" id="eyeopen">
@@ -64,7 +67,7 @@
                             visibility_off
                         </span>
                     </div>
-                    <div id="terms">
+                    <div id="termsdiv">
                         <label for="">Agree To <span class="color"><a href="">Terms And Conditions</a></span></label>
                         <button>I Agree</button>
                     </div>

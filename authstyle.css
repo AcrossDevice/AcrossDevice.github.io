@@ -60,9 +60,7 @@
 /* signindiv css */
 #signindiv{
     margin-top: 30px;
-    /* box-shadow: 0px 0px 2px 0px; */
     padding: 20px 20px;
-    border-radius: 20px;
 }
 #signindiv > :first-child > :first-child{
     font-family: "Ubuntu", sans-serif;
@@ -80,8 +78,36 @@
 #signupdiv{
     display: none;
     margin-top: 30px;
+    padding: 30px 30px;
 }
-
+#signupdiv > :first-child{
+    font-family: "Ubuntu", sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+#signupdiv input{
+    max-width: 20vw;
+    margin-bottom: 20px;
+}
+#signupdiv button{
+    max-width: 10vw;
+}
+#signupdiv >div{
+    flex-direction: column;
+}
+#emaildiv{
+    display: flex;
+}
+#usernamediv {
+    display: none;
+}
+#passworddiv{
+    display: none;
+}
+#termsdiv{
+    display: none;
+}
 .color{
     color: #6c63ff;
     text-decoration: underline;
@@ -108,7 +134,9 @@ button[type='submit']{
     font-family: "Ubuntu", sans-serif;
     font-size: 15px;
 }
-
+.red{
+    color: red;
+}
 /* eyebtn */
 #eyeopen{
     position: relative;
