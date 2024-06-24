@@ -54,22 +54,33 @@
                     </div>
                     <div id="usernamediv">
                         <label for="">Create Your <span class="color">Username</span> :</label>
-                        <p class="red">Username Is already taken !</p>
-                        <button>Submit</button>
+                        <label class="red">Username Is already taken !</label>
                         <input type="text" id="username">
+                        <div class="btnholder2">
+                            <button type="submit" onclick="submititems('username')">Submit</button>
+                            <button type="previous" onclick="previous('usernamediv','emaildiv')">Previous</button>
+                        </div>
+
                     </div>
                     <div id="passworddiv">
                         <label for="">Create a <span class="color">Password</span> :</label>
                         <input type="password">
-                        <span class="material-symbols-outlined" id="eyeopen">
-                            visibility
-                        </span><span class="material-symbols-outlined" id="eyeclose">
-                            visibility_off
-                        </span>
+                        <div style="display: flex; align-items: center; flex-direction: row;">
+                            <input type="checkbox" name="" id="showpass">
+                            <label for="">Show Password</label>
+                        </div>
+                        <div class="btnholder2">
+                            <button type="submit" onclick="submititems('password')">Submit</button>
+                            <button type="previous" onclick="previous('passworddiv','usernamediv')">Previous</button>
+                        </div>
                     </div>
                     <div id="termsdiv">
                         <label for="">Agree To <span class="color"><a href="">Terms And Conditions</a></span></label>
-                        <button>I Agree</button>
+                        <br>
+                        <div class="btnholder2">
+                            <button type="submit" onclick="submititems('agree')">I Agree</button>
+                            <button type="previous" onclick="previous('termsdiv','passworddiv')">Previous</button>
+                        </div>
                     </div>
                 </div>
             </section>

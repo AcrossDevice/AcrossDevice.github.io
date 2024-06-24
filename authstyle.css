@@ -87,13 +87,13 @@
     margin-bottom: 30px;
 }
 #signupdiv input{
-    max-width: 20vw;
+    /* max-width: 20vw; */
     margin-bottom: 20px;
 }
 #signupdiv button{
-    max-width: 10vw;
+    /* max-width: 10vw; */
 }
-#signupdiv >div{
+#signupdiv > div{
     flex-direction: column;
 }
 #emaildiv{
@@ -134,8 +134,27 @@ button[type='submit']{
     font-family: "Ubuntu", sans-serif;
     font-size: 15px;
 }
+button[type='previous']{
+    padding: 10px 10px;
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+    cursor: pointer;
+    margin-bottom: 30px;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 15px;
+}
+#showpass{
+    
+    margin-bottom: 0px;
+}
 .red{
     color: red;
+}
+.btnholder2{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 /* eyebtn */
 #eyeopen{
