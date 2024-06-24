@@ -32,7 +32,7 @@ function submititems(item) {
     if (item === 'email') {
         var email = document.getElementById('email').value;
         document.getElementById('emaildiv').style.display = 'none';
-        document.getElementById('usernamediv').style.display = 'flex';
+        document.getElementById('otpdiv').style.display = 'flex';
     }
     if (item === 'username') {
         var username = document.getElementById('username').value;
@@ -51,8 +51,15 @@ function submititems(item) {
 
 // previous function
 function previous(from, to) {
+    console.log(from,to);
     document.getElementById(from).style.display = 'none';
     document.getElementById(to).style.display = 'flex';
+}
+
+// verify otp
+function verifyotp(){
+    document.getElementById('otpdiv').style.display='none';
+    document.getElementById('usernamediv').style.display='flex';
 }
 
 // final submit

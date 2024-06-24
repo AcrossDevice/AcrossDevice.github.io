@@ -99,6 +99,9 @@
 #emaildiv{
     display: flex;
 }
+#otpdiv{
+    display: none;
+}
 #usernamediv {
     display: none;
 }

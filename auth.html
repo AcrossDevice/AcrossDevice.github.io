@@ -20,7 +20,7 @@
                     You Want to...
                 </p>
                 <div class="btnholder" id="btnholder">
-                    <button onclick="signup()" >Create A New Account</button>
+                    <button onclick="signup()">Create A New Account</button>
                     <button onclick="signin()" class="active">Log In To An Account</button>
                 </div>
 
@@ -37,7 +37,8 @@
                                 visibility_off
                             </span>
                             <button type="submit">Log In</button>
-                            <label for="">Don't have an account ? <span class="color" onclick="signup()">create an account</span></label>
+                            <label for="">Don't have an account ? <span class="color" onclick="signup()">create an
+                                    account</span></label>
                         </div>
                     </form>
                 </div>
@@ -45,14 +46,24 @@
                     <h1>Create A Account</h1>
                     <div id="emaildiv">
                         <label for="">Enter Your <snap class="color">Email</snap> :</label>
-                        <label class="red">An Account is already linked with this email ,</label >
+                        <label class="red">An Account is already linked with this email ,</label>
                         <label class="red"> login or use a different email</label>
                         <input type="email" id="email">
                         <button type="submit" onclick="submititems('email')">Submit</button>
                         <label for="">Already have An Account ? <span class="color" onclick="signin()">
-                                    Login</span></label>
+                                Login</span></label>
+                    </div>
+                    <div class="otpdiv" id="otpdiv">
+                        <label for="">Enter the otp sent on your email</label>
+                        <label for="" class="red">Incorrect Otp!</label>
+                        <input type="text" otp>
+                        <div class="btnholder2">
+                            <button type="submit" onclick="verifyotp()">Verify</button>
+                            <button type="previous" onclick="previous('otpdiv','emaildiv')">Previous</button>
+                        </div>
                     </div>
                     <div id="usernamediv">
+                        <label for="">Otp Was Verified !</label>
                         <label for="">Create Your <span class="color">Username</span> :</label>
                         <label class="red">Username Is already taken !</label>
                         <input type="text" id="username">
