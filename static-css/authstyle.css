@@ -115,6 +115,7 @@
     color: #6c63ff;
     text-decoration: underline;
     cursor: pointer;
+    margin-bottom: 10px;
 }
 label{
     font-family: "Ubuntu", sans-serif;
@@ -175,6 +176,29 @@ button[type='previous']{
     position: relative;
     top: -40px;
     left: 311px;
+    width: fit-content;
+    cursor: pointer;
+    color: rgb(85, 85, 85);
+    display: block;
+}
+
+#eyeopensignup{
+    position: relative;
+    top: -51px;
+    right: 0px ;
+    left: 288px;
+    bottom: 0px;
+    width: fit-content;
+    display: none;
+    cursor:pointer;
+    color: gray;
+    top: -51px;
+    left: 288px;
+}
+#eyeclosesignup{
+    position: relative;
+    top: -51px;
+    left: 288px;
     width: fit-content;
     cursor: pointer;
     color: rgb(85, 85, 85);

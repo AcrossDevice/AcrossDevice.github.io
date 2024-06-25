@@ -51,21 +51,50 @@ function submititems(item) {
 
 // previous function
 function previous(from, to) {
-    console.log(from,to);
+    console.log(from, to);
     document.getElementById(from).style.display = 'none';
     document.getElementById(to).style.display = 'flex';
 }
 
 // verify otp
-function verifyotp(){
-    document.getElementById('otpdiv').style.display='none';
-    document.getElementById('usernamediv').style.display='flex';
+function verifyotp() {
+    document.getElementById('otpdiv').style.display = 'none';
+    document.getElementById('usernamediv').style.display = 'flex';
 }
 
 // final submit
 function finalsubmit() {
     // final code comes here
     alert('working');
-    
+}
 
+// eye btn code 
+var visible = false;
+function toggleeye() {
+    if (visible === false) {
+        // document.getElementById('eyeclosesignup').style.display='none';
+        // document.getElementById('eyeclose').style.display='none';
+        // document.getElementById('eyeopensignup').style.display='block';
+        // document.getElementById('eyeopen').style.display='block';
+        document.querySelectorAll('.toggleeye').forEach(item=>{
+            item.innerHTML='Hide password';
+        })
+        document.querySelectorAll('.passwordinput').forEach(item => {
+            item.type = 'text';
+            visible = true;
+        })
+    }
+    else {
+        // document.getElementById('eyeclosesignup').style.display='block';
+        // document.getElementById('eyeclose').style.display='block';
+        // document.getElementById('eyeopensignup').style.display='none';
+        // document.getElementById('eyeopen').style.display='none';
+        document.querySelectorAll('.toggleeye').forEach(item=>{
+            item.innerHTML='Show password';
+        })
+        document.querySelectorAll('.passwordinput').forEach(item => {
+            item.type = 'password';
+            visible = false;
+        })
+    }
 }

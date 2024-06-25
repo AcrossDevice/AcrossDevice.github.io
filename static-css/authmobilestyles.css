@@ -1,0 +1,12 @@
+@media (max-width: 576px) {
+    #authholder > :first-child{
+        display: none;
+    }
+    .btnholder{
+        margin: 10px 0px;
+        display: flex;
+    }
+    .signupdiv,.signindiv{
+        border: 1px gray solid;
+    }
+}

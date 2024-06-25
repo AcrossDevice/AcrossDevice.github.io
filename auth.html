@@ -8,6 +8,7 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="static-css/authstyle.css">
+    <link rel="stylesheet" href="static-css/authmobilestyles.css">
 </head>
 
 
@@ -28,14 +29,17 @@
                     <form action="" method="post">
                         <h1>Login To Account</h1>
                         <div>
+                            <label  class="red">Invalid User !</label>
                             <label>User Name :</label>
                             <input type="text">
                             <label>Password :</label>
-                            <input type="password"><span class="material-symbols-outlined" id="eyeopen">
+                            <input type="password" class="passwordinput">
+                            <label class="color toggleeye" onclick="toggleeye()">Show Password</label>
+                            <!-- <span class="material-symbols-outlined" id="eyeopen" onclick="toggleeye()">
                                 visibility
-                            </span><span class="material-symbols-outlined" id="eyeclose">
+                            </span><span class="material-symbols-outlined" id="eyeclose" onclick="toggleeye()">
                                 visibility_off
-                            </span>
+                            </span> -->
                             <button type="submit">Log In</button>
                             <label for="">Don't have an account ? <span class="color" onclick="signup()">create an
                                     account</span></label>
@@ -75,11 +79,13 @@
                     </div>
                     <div id="passworddiv">
                         <label for="">Create a <span class="color">Password</span> :</label>
-                        <input type="password">
-                        <div style="display: flex; align-items: center; flex-direction: row;">
-                            <input type="checkbox" name="" id="showpass">
-                            <label for="">Show Password</label>
-                        </div>
+                        <input type="password" class="passwordinput">
+                        <label class="color toggleeye" onclick="toggleeye()">Show password</label>
+                        <!-- <span class="material-symbols-outlined" id="eyeopensignup" onclick="toggleeye()">
+                            visibility
+                        </span><span class="material-symbols-outlined" id="eyeclosesignup" onclick="toggleeye()">
+                            visibility_off
+                        </span> -->
                         <div class="btnholder2">
                             <button type="submit" onclick="submititems('password')">Submit</button>
                             <button type="previous" onclick="previous('passworddiv','usernamediv')">Previous</button>
