@@ -9,4 +9,7 @@
     .signupdiv,.signindiv{
         border: 1px gray solid;
     }
+    label{
+        font-size: 18px;
+    }
 }

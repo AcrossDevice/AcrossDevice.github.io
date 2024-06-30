@@ -26,66 +26,56 @@
                 </div>
 
                 <div class="signindiv" id="signindiv">
-                    <form action="" method="post">
+                    <div>
                         <h1>Login To Account</h1>
                         <div>
-                            <label  class="red">Invalid User !</label>
+                            <label class="red" id="loginerror"></label>
+                            <label style="color: green;" id="loginmessage"></label>
                             <label>User Name :</label>
-                            <input type="text">
+                            <input type="text" id="loginusername">
                             <label>Password :</label>
-                            <input type="password" class="passwordinput">
+                            <input type="password" class="passwordinput" id="loginpassword">
                             <label class="color toggleeye" onclick="toggleeye()">Show Password</label>
-                            <!-- <span class="material-symbols-outlined" id="eyeopen" onclick="toggleeye()">
-                                visibility
-                            </span><span class="material-symbols-outlined" id="eyeclose" onclick="toggleeye()">
-                                visibility_off
-                            </span> -->
-                            <button type="submit">Log In</button>
+                            <button type="submit" onclick="initlogin()">Log In</button>
                             <label for="">Don't have an account ? <span class="color" onclick="signup()">create an
                                     account</span></label>
                         </div>
-                    </form>
+                    </div>
                 </div>
                 <div class="signupdiv" id="signupdiv">
                     <h1>Create A Account</h1>
                     <div id="emaildiv">
                         <label for="">Enter Your <snap class="color">Email</snap> :</label>
-                        <label class="red">An Account is already linked with this email ,</label>
-                        <label class="red"> login or use a different email</label>
+                        <label id="emailerror" class="red"></label>
                         <input type="email" id="email">
-                        <button type="submit" onclick="submititems('email')">Submit</button>
+                        <button type="submit" onclick="checkemail()">Submit</button>
                         <label for="">Already have An Account ? <span class="color" onclick="signin()">
                                 Login</span></label>
                     </div>
                     <div class="otpdiv" id="otpdiv">
                         <label for="">Enter the otp sent on your email</label>
-                        <label for="" class="red">Incorrect Otp!</label>
-                        <input type="text" otp>
+                        <label for="" class="red" id="otperror"></label>
+                        <input type="text" id="otp">
                         <div class="btnholder2">
                             <button type="submit" onclick="verifyotp()">Verify</button>
                             <button type="previous" onclick="previous('otpdiv','emaildiv')">Previous</button>
                         </div>
                     </div>
                     <div id="usernamediv">
-                        <label for="">Otp Was Verified !</label>
                         <label for="">Create Your <span class="color">Username</span> :</label>
-                        <label class="red">Username Is already taken !</label>
+                        <label class="red" id="usernameerror"></label>
                         <input type="text" id="username">
                         <div class="btnholder2">
-                            <button type="submit" onclick="submititems('username')">Submit</button>
+                            <button type="submit" onclick="checkusername()">Submit</button>
                             <button type="previous" onclick="previous('usernamediv','emaildiv')">Previous</button>
                         </div>
 
                     </div>
                     <div id="passworddiv">
                         <label for="">Create a <span class="color">Password</span> :</label>
-                        <input type="password" class="passwordinput">
+                        <input type="password" class="passwordinput" id="inputpassword">
                         <label class="color toggleeye" onclick="toggleeye()">Show password</label>
-                        <!-- <span class="material-symbols-outlined" id="eyeopensignup" onclick="toggleeye()">
-                            visibility
-                        </span><span class="material-symbols-outlined" id="eyeclosesignup" onclick="toggleeye()">
-                            visibility_off
-                        </span> -->
+
                         <div class="btnholder2">
                             <button type="submit" onclick="submititems('password')">Submit</button>
                             <button type="previous" onclick="previous('passworddiv','usernamediv')">Previous</button>
@@ -94,8 +84,10 @@
                     <div id="termsdiv">
                         <label for="">Agree To <span class="color"><a href="">Terms And Conditions</a></span></label>
                         <br>
+                        <label id="usercreationstatus" style="color: green;"></label>
+                        <label id="usercreationerror" class="red"></label>
                         <div class="btnholder2">
-                            <button type="submit" onclick="submititems('agree')">I Agree</button>
+                            <button type="submit" onclick="createuser()">I Agree</button>
                             <button type="previous" onclick="previous('termsdiv','passworddiv')">Previous</button>
                         </div>
                     </div>
@@ -104,6 +96,7 @@
         </div>
     </section>
     <script src="static-js/auth.js"></script>
+    <script src="static-js/auth-api.js"></script>
 </body>
 
 </html>
