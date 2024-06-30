@@ -91,7 +91,7 @@ async function createuser() {
     usernamevalue = document.getElementById('username').value;
     emailvalue = document.getElementById('email').value;
     passvalue = document.getElementById('inputpassword').value;
-    await fetch('http://127.0.0.1:8000/createuser', {
+    await fetch('https://socialpot.pythonanywhere.com/createuser', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -142,9 +142,13 @@ async function logginguser() {
             document.getElementById('loginerror').innerHTML = data.message;
         } else {
             console.log(data);
-            localStorage.setItem('access_token', data.access);
-            localStorage.setItem('refresh_token', data.refresh);
-            window.location.href='landingpage.html?data=authenticated';
+            if (data.access){
+                localStorage.setItem('access_token', data.access);
+                localStorage.setItem('refresh_token', data.refresh);
+                window.location.href='landingpage.html?data=authenticated';
+            }else{
+                document.getElementById('loginerror').innerHTML = data.detail;
+            }
         }
     }).catch(error => {
         console.error('Error:', error);
