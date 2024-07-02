@@ -1,25 +1,14 @@
-
+// funtion to check expiry of token
 function isTokenExpired(token) {
-    // Check if token is not provided or empty
     if (!token) {
-        return true; // Token is considered expired if it doesn't exist
+        return true; 
     }
-
-    // Split the token into its three parts: header, payload, signature
     const tokenParts = token.split('.');
-
-    // Check if the token has valid format with exactly three parts
     if (tokenParts.length !== 3) {
-        return true; // Invalid token format
+        return true; 
     }
-
-    // Decode the payload (middle part) of the token and parse it as JSON
     const payload = JSON.parse(atob(tokenParts[1]));
-
-    // Extract the expiration time ('exp' claim) from the decoded payload
-    const tokenExp = payload.exp; // Expiration time in seconds since Unix epoch
-
-    // Check if the token expiration time is in the past
+    const tokenExp = payload.exp; 
     return tokenExp < Date.now() / 1000;
 }
 

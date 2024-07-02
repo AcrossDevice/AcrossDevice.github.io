@@ -1,29 +1,150 @@
-*{
-    padding: 0px 0px;
-    margin: 0px 0px;
-    box-sizing: border-box;
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+* {
+  padding: 0px 0px;
+  margin: 0px 0px;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 18px;
+  cursor: default;
 }
 
-header{
-    position: fixed;
-    box-shadow: 0px 0px 2px 0px;
-    padding: 20px 20px;
-    background-color: white;
-    top: 0px;
-    left: 0px;
+body,
+html {
+  height: 100vh;
+  width: 100vw;
+}
+
+header {
+  box-shadow: 0px 0px 2px 0px;
+  padding: 10px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 6vh;
+  background-color: white;
+  z-index: 10;
+}
+nav {
+  font-size: 20px;
+  font-weight: 300;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+}
+
+.leftpane {
+  padding-right: 20px;
+  border: 1px solid rgb(165, 165, 165);
+  height: calc(100vh - 11vh);
+  overflow: auto;
+  background-color: white;
+}
+
+.leftpane > div {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0px;
+}
+
+.leftpane h3 {
+  margin: 0px 20px;
+  font-weight: 400;
+  font-size: 20px;
+}
+.leftpane > div > ul {
+  list-style: none;
+}
+
+.leftpane > div > ul > li {
+  margin: 10px 5px;
+  cursor: pointer;
+  font-weight: 300;
+  padding: 10px 50px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.leftpane > div > ul > li:hover {
+  box-shadow: 0px 0px 2px 0px;
+}
+
+span {
+  margin-top: 3px;
+  margin: 0px 5px;
+}
+.menutext {
+  margin-right: 10px;
+}
+
+.active {
+  color: white;
+  background-color: black;
+  box-shadow: 0px 0px 3px 0px rgb(184, 183, 183);
+}
+.displayarea{
+    flex: 1;
     display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.displayarea > div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.displaydiv{
+  display: flex;
+  padding: 30px 30px;
+  flex-direction: column;
+  box-shadow: 0px 0px 2px 0px;
+}
+
+.displaydiv h1 {
+  font-size: 25px;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+.displaydiv label {
+  margin-bottom: 10px;
+}
+.displaydiv input ,.displaydiv textarea {
+  padding: 10px 10px;
+  margin-bottom: 20px;
+}
+
+.displaydiv button {
+  background-color: #6c63ff;
+  color: white;
+  border: none;
+  padding: 10px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.displayimg{
+    width: 35vw;
+    height: auto;
+    margin: 0px 30px;
+}
+
+footer {
+  box-shadow: 0px 0px 2px 0px;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  padding: 0px 10px;
 }
 
 
-header ul{
-    list-style-type: none;
+/* #keeptextdiv,#keepfilediv,.displayimg{
+    display: none;
 }
 
-header > :last-child{
-    padding-left: calc(100vw-40px-70px);
-    cursor: pointer;
-}
-
-main{
-    margin-top: 60px ;
-}
+#keeplinkdiv > :first-child{
+    display: block;
+} */
