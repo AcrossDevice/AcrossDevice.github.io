@@ -91,6 +91,9 @@ span {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
+    overflow: auto;
+    height: 89vh;
 }
 .displayarea > div{
     display: flex;
@@ -102,6 +105,7 @@ span {
   padding: 30px 30px;
   flex-direction: column;
   box-shadow: 0px 0px 2px 0px;
+  margin: 10px 10px;
 }
 
 .displaydiv h1 {
@@ -141,10 +145,27 @@ footer {
 }
 
 
-/* #keeptextdiv,#keepfilediv,.displayimg{
-    display: none;
+.btndiv{
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-around;
+  /* padding: 20px 20px; */
 }
 
-#keeplinkdiv > :first-child{
-    display: block;
-} */
+.btndiv button{
+  margin: 5px 20px;
+}
+
+button[type = 'del']{
+  /* background-color: rgb(253, 79, 79); */
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+
+.displayfilediv{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}

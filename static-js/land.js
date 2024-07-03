@@ -78,3 +78,77 @@ function Navigate(child){
     undisplay();
     document.querySelector('.displayarea').children[child].style.display='flex';
 }
+
+function getlinks(){
+    undisplay()
+    for(let i = 0;i<10;i++){
+        Createitem()
+    }   
+}
+
+function getfiles(){
+    undisplay()
+    for(let i = 0;i<10;i++){
+        createfilesitems()
+    }  
+}
+
+
+function Createitem(){
+    // creating elements to show the backend data
+    let displayarea = document.querySelector('.displayarea');
+    let displaydiv = document.createElement('div');
+    let input = document.createElement('input');
+    let btndiv = document.createElement('div');
+    let copy = document.createElement('button');
+    let deletebtn = document.createElement('button');
+
+    // arranging the elements
+    displayarea.appendChild(displaydiv);
+    displaydiv.appendChild(input);
+    displaydiv.appendChild(btndiv);
+    btndiv.appendChild(copy);
+    btndiv.appendChild(deletebtn);
+
+    // setting values in btns
+    copy.innerHTML='Copy';
+    deletebtn.innerHTML='Delete';
+    deletebtn.setAttribute('type','del');
+    input.disabled=true;
+
+
+    // adding styles
+    displaydiv.classList.add('displaydiv');
+    btndiv.classList.add('btndiv');
+}
+
+function createfilesitems(){
+    // creating elements
+    let displayarea = document.querySelector('.displayarea');
+    let displaydiv = document.createElement('div');
+    let nameinput = document.createElement('input');
+    let btndiv = document.createElement('div');
+    let download = document.createElement('button');
+    let view = document.createElement('button');
+    let delbtn = document.createElement('button');
+
+    // setting values
+    download.innerHTML = 'Download';
+    view.innerHTML = 'View';
+    delbtn.innerHTML = 'Delete';
+
+    // setting properties
+    displaydiv.classList.add('displaydiv');
+    nameinput.disabled=true;
+    btndiv.classList.add('btndiv');
+    delbtn.setAttribute('type','del');
+
+    //arranging items
+    displayarea.appendChild(displaydiv) ;
+    displaydiv.appendChild(nameinput);
+    displaydiv.appendChild(btndiv);
+    btndiv.appendChild(download);
+    btndiv.appendChild(view);
+    btndiv.appendChild(delbtn);
+
+}

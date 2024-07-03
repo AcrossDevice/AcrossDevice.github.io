@@ -44,23 +44,23 @@
             <div class="accessitems">
                 <h3>Access Items</h3>
                 <ul>
-                    <li class="menubtn" onclick="Navigate(0)">
+                    <li class="menubtn" onclick="getlinks()">
                         <span class="material-symbols-outlined">
                             link
                         </span>
-                        <p class="menutext" onclick="Navigate(0)">Access Links</p>
+                        <p class="menutext">Access Links</p>
                     </li>
-                    <li class="menubtn" onclick="Navigate(1)">
+                    <li class="menubtn" onclick="getlinks()">
                         <span class="material-symbols-outlined">
                             text_fields
                         </span>
-                        <p class="menutext" onclick="Navigate(1)">Access Text</p>
+                        <p class="menutext">Access Text</p>
                     </li>
-                    <li class="menubtn" onclick="Navigate(2)">
+                    <li class="menubtn" onclick="getfiles()">
                         <span class="material-symbols-outlined">
                             attachment
                         </span>
-                        <p class="menutext" onclick="Navigate(2)">Access Files</p>
+                        <p class="menutext" >Access Files</p>
                     </li>
                 </ul>
             </div>
@@ -106,6 +106,8 @@
                     <h1>Keep File</h1>
                     <label>Open Your File Here :</label>
                     <input type="file" id="file"></input>
+                    <label >What are you storing ?</label>
+                    <input type="text" name="filename">
                     <button>Submit</button>
                 </div>
             </div>
