@@ -21,30 +21,23 @@ async function refreshAccessToken(refreshToken) {
             },
             body: JSON.stringify({ refresh: refreshToken })
         });
-
         if (!response.ok) {
             throw new Error('Token refresh failed');
         }
-
         const data = await response.json();
         localStorage.setItem('access_token', data.access);
-
-
+        localStorage.setItem('refresh_token',data.refresh);
     } catch (error) {
         console.error('Token refresh error:', error);
-        // Handle token refresh error as needed (e.g., redirect to login page)
-        window.location.href = 'auth.html';  // Redirect to login page if refresh fails
     }
 }
 document.addEventListener('DOMContentLoaded', function () {
     const accessToken = localStorage.getItem('access_token');
 
     if (isTokenExpired(accessToken)) {
-        // Handle token expiration (e.g., refresh token or redirect to login page)
         console.log('Access token expired');
         if (localStorage.getItem('refresh_token')) {
             refreshAccessToken(localStorage.getItem('refresh_token'));
-            window.location.href = 'landingpage.html?data=authenticated';
         }
 
 

@@ -27,9 +27,11 @@ async function refreshAccessToken(refreshToken) {
         }
         const data = await response.json();
         localStorage.setItem('access_token', data.access);
+        localStorage.setitem('refresh_token',data.refresh);
     } catch (error) {
         console.error('Token refresh error:', error);
-        // window.location.href = 'auth.html';
+        localStorage.clear()
+        window.location.href ='auth.html';
     }
 }
 document.addEventListener('DOMContentLoaded', function () {
@@ -39,6 +41,9 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log('Access token expired');
         if (localStorage.getItem('refresh_token')) {
             refreshAccessToken(localStorage.getItem('refresh_token'));
+        }
+        else{
+            window.location.href = 'auth.html';
         }
     }
 });
