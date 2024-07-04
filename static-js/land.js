@@ -29,7 +29,7 @@ async function refreshAccessToken(refreshToken) {
         localStorage.setItem('access_token', data.access);
     } catch (error) {
         console.error('Token refresh error:', error);
-        window.location.href = 'auth.html';
+        // window.location.href = 'auth.html';
     }
 }
 document.addEventListener('DOMContentLoaded', function () {
