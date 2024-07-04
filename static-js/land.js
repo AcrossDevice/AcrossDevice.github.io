@@ -157,3 +157,9 @@ function createfilesitems(){
     btndiv.appendChild(delbtn);
 
 }
+
+// logout function
+function logout(){
+    localStorage.clear()
+    window.location.href='auth.html';
+}
