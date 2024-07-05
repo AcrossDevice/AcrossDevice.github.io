@@ -60,6 +60,10 @@ document.querySelector('.displayarea').children[0].style.display='flex';
 document.querySelectorAll('.menubtn').forEach(item => {
     item.addEventListener('click', () => {
         removeactive();
+        if(window.innerWidth<576){
+
+            closemenu()
+        }
         item.classList.add('active');
     })
 })
@@ -162,4 +166,17 @@ function createfilesitems(){
 function logout(){
     localStorage.clear()
     window.location.href='auth.html';
+}
+
+
+// open menu
+function openmenu(){
+    document.getElementById('menuicon').style.display='none';
+    document.getElementById('closeicon').style.display='block';
+    document.querySelector('.leftpane').style.display='block';
+}
+function closemenu(){
+    document.getElementById('menuicon').style.display='block';
+    document.getElementById('closeicon').style.display='none';
+    document.querySelector('.leftpane').style.display='none';
 }

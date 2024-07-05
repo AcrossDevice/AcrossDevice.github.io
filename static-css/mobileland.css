@@ -1,0 +1,27 @@
+@media (max-width: 576px) {
+    .leftpane{
+        display: none;
+        position: absolute;
+        top: 6vh;
+        /* left: -75vw; */
+    }
+    .displayarea>div{
+        flex-direction: column;
+    }
+    .displayimg{
+        display: none;
+    }
+    #menuicon{
+        display: block;
+    }
+    #menuicon,#closeicon{
+        position: absolute;
+        top: 1vh;
+        left: 4vw;
+    }
+    .displaydiv{
+        flex-wrap: wrap;
+        padding: 20px 20px;
+    }
+
+}

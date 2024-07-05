@@ -169,3 +169,8 @@ button[type = 'del']{
   align-items: center;
   flex-direction: column;
 }
+
+
+#menuicon,#closeicon{
+  display: none;
+}
