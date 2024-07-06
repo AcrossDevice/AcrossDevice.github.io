@@ -52,8 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // keep links is active
 document.querySelector('.leftpane').children[0].children[1].children[0].classList.add('active');
-undisplay()
-document.querySelector('.displayarea').children[0].style.display='flex';
+
 
 
 // to add active class to menu btns
@@ -114,7 +113,7 @@ function Createitem(){
 
     // arranging the elements
     displayarea.appendChild(displaydiv);
-    displaydiv.appendChild(input);
+    displaydiv.prepend(input);
     displaydiv.appendChild(btndiv);
     btndiv.appendChild(copy);
     btndiv.appendChild(deletebtn);
@@ -147,7 +146,7 @@ function createfilesitems(){
     delbtn.innerHTML = 'Delete';
 
     // setting properties
-    displaydiv.classList.add('displaydiv');
+    displaydiv.classList.add('filediv');
     nameinput.disabled=true;
     btndiv.classList.add('btndiv');
     delbtn.setAttribute('type','del');
@@ -179,4 +178,12 @@ function closemenu(){
     document.getElementById('menuicon').style.display='block';
     document.getElementById('closeicon').style.display='none';
     document.querySelector('.leftpane').style.display='none';
+}
+
+
+// adjusting the keep files page
+if(window.innerWidth<576){
+    document.getElementById('keepfilediv').children[0].classList.remove('displaydiv');
+    document.getElementById('keepfilediv').children[0].classList.add('keepfilediv');
+    document.getElementById('keepfilediv').parentElement.style.alignItems='flex-start';
 }

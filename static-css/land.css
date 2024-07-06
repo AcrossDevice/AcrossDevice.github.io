@@ -174,3 +174,8 @@ button[type = 'del']{
 #menuicon,#closeicon{
   display: none;
 }
+
+
+#keeptextdiv,#keepfilediv{
+  display: none;
+}
