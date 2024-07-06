@@ -146,7 +146,11 @@ function createfilesitems(){
     delbtn.innerHTML = 'Delete';
 
     // setting properties
-    displaydiv.classList.add('filediv');
+    if(window.innerWidth<576){
+        displaydiv.classList.add('filediv');
+    }else{
+        displaydiv.classList.add('displaydiv');
+    }
     nameinput.disabled=true;
     btndiv.classList.add('btndiv');
     delbtn.setAttribute('type','del');
@@ -161,10 +165,25 @@ function createfilesitems(){
 
 }
 
+// settings tab
+function settings(){
+    undisplay()
+
+}
+
+
+
 // logout function
 function logout(){
-    localStorage.clear()
-    window.location.href='auth.html';
+    document.querySelector('.confirmlogout').style.display='flex'
+}
+function LO(param){
+    if(param===0){
+        document.querySelector('.confirmlogout').style.display ='none';
+    }if(param===1){
+        localStorage.clear()
+        window.location.href = 'auth.html';
+    }
 }
 
 
