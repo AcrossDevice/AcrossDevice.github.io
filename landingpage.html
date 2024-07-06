@@ -69,7 +69,7 @@
                         </span>
                         <p class="menutext">Access Links</p>
                     </li>
-                    <li class="menubtn" onclick="getlinks()">
+                    <li class="menubtn" onclick="gettext()">
                         <span class="material-symbols-outlined">
                             text_fields
                         </span>
@@ -109,7 +109,7 @@
                     <h1>Keep Links</h1>
                     <label>Paste Your Link Here :</label>
                     <input type="text" id="link">
-                    <button>Submit</button>
+                    <button onclick="postapi('https://socialpot.pythonanywhere.com/linkhandler','link')">Submit</button>
                 </div>
             </div>
             <div id="keeptextdiv">
@@ -118,7 +118,7 @@
                     <h1>Keep Text</h1>
                     <label>Paste Your Text Here :</label>
                     <textarea id="text"></textarea>
-                    <button>Submit</button>
+                    <button onclick="postapi('https://socialpot.pythonanywhere.com/texthandler','text')">Submit</button>
                 </div>
             </div>
             <div id="keepfilediv">
@@ -135,9 +135,11 @@
     </main>
     <footer>
         <p>Status:</p>
-        <p style="color: green;"> Success</p>
+        <p style="color: green;" id="statusgreen" ></p>
+        <p style="color: red;" id="statusred"></p>
     </footer>
     <script src="static-js/land.js"></script>
+    <script src="static-js/land-api.js"></script>
 </body>
 
 </html>
