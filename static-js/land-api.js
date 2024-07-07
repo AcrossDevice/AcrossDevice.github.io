@@ -9,13 +9,20 @@ function getapi(param, item) {
     }).then(response => {
         return response.json()
     }).then(data => {
-        console.log(data);
         if (data.status === 200) {
-            document.getElementById('statusgreen').innerHTML = data.message;
-            array = data.data;
-            array.forEach(element => {
-                Createitem(element, item);
-            });
+            if (data.data.length ===0) {
+                document.getElementById('statusgreen').innerHTML = 'No items stored';
+            }
+            else {
+                document.getElementById('statusgreen').innerHTML = data.message;
+                array = data.data;
+                array.forEach(element => {
+                    Createitem(element, item);
+                });
+            }
+        } else {
+            document.getElementById('statusgreen').innerHTML = '';
+            document.getElementById('statusred').innerHTML = data.message;
         }
     }).catch(error => {
         console.error('Error:', error);
@@ -32,6 +39,7 @@ function Createitem(param, item) {
     let copy = document.createElement('button');
     let deletebtn = document.createElement('button');
 
+
     // arranging the elements
     displayarea.appendChild(displaydiv);
     displaydiv.prepend(input);
@@ -42,12 +50,18 @@ function Createitem(param, item) {
     // setting values in btns
     copy.innerHTML = 'Copy';
     if (item === 'link') {
-        copy.setAttribute('onclick', copyvalue(param.Link))
+        copy.onclick = function () {
+            copyvalue(param.Link);
+        }
     } else {
-        copy.setAttribute('onclick', copyvalue(param.Text))
+        copy.onclick = function () {
+            copyvalue(param.Text);
+        }
     }
     deletebtn.innerHTML = 'Delete';
-    deletebtn.setAttribute('onclick', del(param.id));
+    deletebtn.onclick = function () {
+        del(param.id, item)
+    }
     deletebtn.setAttribute('type', 'del');
     input.disabled = true;
     if (item === 'link') {
@@ -59,15 +73,23 @@ function Createitem(param, item) {
     // adding styles
     displaydiv.classList.add('displaydiv');
     btndiv.classList.add('btndiv');
+    if (item === 'link') {
+        let go = document.createElement('button');
+        go.innerHTML = 'Visit';
+        go.onclick = function () {
+            goto(param.Link)
+        }
+        btndiv.prepend(go);
+
+    }
 }
 
 
-function postapi(param, item) {
-    if(item === link){
-        input = document.getElementById('link').value;
-    }else{
-        input = document.getElementById('text').value;
-    }
+function postapi(param) {
+
+    link = document.getElementById('link').value;
+    input = document.getElementById('text').value;
+
     fetch(param, {
         method: 'POST',
         headers: {
@@ -75,22 +97,56 @@ function postapi(param, item) {
             'Authorization': `Bearer ${localStorage.getItem('access_token')}`
         },
         body: JSON.stringify({
-            'Link': `${input}`,
-            'Text':`${input}`
+            'Link': `${link}`,
+            'Text': `${input}`
         })
-    }).then(response =>{
+    }).then(response => {
         return response.json()
-    }).then(data =>{
+    }).then(data => {
         console.log(data)
-        if (data.status===200){
+        if (data.status === 200) {
             document.getElementById('statusgreen').innerHTML = data.message;
-            document.getElementById('text').value ='';
-            document.getElementById('link').value='';
-        }else{
+            document.getElementById('text').value = '';
+            document.getElementById('link').value = '';
+        } else {
             document.getElementById('statusgreen').innerHTML = '';
             document.getElementById('statusred').innerHTML = data.message;
         }
-    }).catch(error=>{
+    }).catch(error => {
         console.error(error);
+    })
+}
+
+
+// delete api
+
+function deleteitems(item, id) {
+    let url;
+    if (item === 'link') {
+        url = 'https://socialpot.pythonanywhere.com/linkhandler';
+    } if (item === 'text') {
+        url = 'https://socialpot.pythonanywhere.com/texthandler';
+    }
+    fetch(url, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('access_token')}`
+        },
+        body: JSON.stringify({
+            'id': `${id}`
+        })
+    }).then(response => {
+        return response.json()
+    }).then(data => {
+        console.log(data);
+        if (data.status === 200) {
+            undisplay()
+            getapi(url, item)
+            document.getElementById('statusgreen').innerHTML = data.message;
+        } else {
+            document.getElementById('statusgreen').innerHTML = '';
+            document.getElementById('statusred').innerHTML = data.message;
+        }
     })
 }

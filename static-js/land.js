@@ -71,6 +71,7 @@ function removeactive(){
     document.querySelectorAll('.menubtn').forEach(item =>{
         item.classList.remove('active');
     })
+    document.getElementById('statusgreen').innerHTML ='';
 }
 
 // to remove all children from displayarea
@@ -183,9 +184,17 @@ if(window.innerWidth<576){
 
 
 function copyvalue(param){
-    console.log(param);
+    navigator.clipboard.writeText(param).then(()=>{
+        document.getElementById('statusgreen').innerHTML ='Item copied ';
+    })
 }
 
-function del(param){
+function del(param,item){
     console.log(param);
+    console.log(item);
+    deleteitems(item,param)
+}
+
+function goto(param){
+    window.open(`${param}`,'_blank');
 }
