@@ -207,6 +207,8 @@ async function postfiles(formdata) {
     }).then(data =>{
         if(data.status ===200){
             document.getElementById('statusgreen').innerHTML =data.message;
+            document.getElementById('file').innerHTML = '';
+            document.getElementById('filename').innerHTML='';
         }
     }).catch(error=>{
         console.error(error);
