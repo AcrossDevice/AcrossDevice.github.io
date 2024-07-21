@@ -27,11 +27,11 @@ async function refreshAccessToken(refreshToken) {
         }
         const data = await response.json();
         localStorage.setItem('access_token', data.access);
-        localStorage.setitem('refresh_token',data.refresh);
+        localStorage.setitem('refresh_token', data.refresh);
     } catch (error) {
         console.error('Token refresh error:', error);
         localStorage.clear()
-        window.location.href ='auth.html';
+        window.location.href = 'auth.html';
     }
 }
 document.addEventListener('DOMContentLoaded', function () {
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (localStorage.getItem('refresh_token')) {
             refreshAccessToken(localStorage.getItem('refresh_token'));
         }
-        else{
+        else {
             window.location.href = 'auth.html';
         }
     }
@@ -51,7 +51,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 // keep links is active
-document.querySelector('.leftpane').children[0].children[1].children[0].classList.add('active');
+if (window.innerWidth < 576) {
+    undisplay()
+} else {
+    document.querySelector('.leftpane').children[0].children[1].children[0].classList.add('active');
+}
 
 
 
@@ -59,7 +63,7 @@ document.querySelector('.leftpane').children[0].children[1].children[0].classLis
 document.querySelectorAll('.menubtn').forEach(item => {
     item.addEventListener('click', () => {
         removeactive();
-        if(window.innerWidth<576){
+        if (window.innerWidth < 576) {
 
             closemenu()
         }
@@ -67,81 +71,46 @@ document.querySelectorAll('.menubtn').forEach(item => {
     })
 })
 // remove active from menu btns
-function removeactive(){
-    document.querySelectorAll('.menubtn').forEach(item =>{
+function removeactive() {
+    document.querySelectorAll('.menubtn').forEach(item => {
         item.classList.remove('active');
     })
-    document.getElementById('statusgreen').innerHTML ='';
+    document.getElementById('statusgreen').innerHTML = '';
 }
 
 // to remove all children from displayarea
-function undisplay(){
-    let items =document.querySelector('.displayarea').children ;
+function undisplay() {
+    let items = document.querySelector('.displayarea').children;
     let array = Array.from(items);
-    array.forEach(item=>{
+    array.forEach(item => {
         item.style.display = 'none';
-    })   
+    })
 }
 
-function Navigate(child){
+function Navigate(child) {
     undisplay();
-    document.querySelector('.displayarea').children[child].style.display='flex';
+    document.querySelector('.displayarea').children[child].style.display = 'flex';
 }
 
-function getlinks(){
+function getlinks() {
     undisplay()
-    getapi('https://socialpot.pythonanywhere.com/linkhandler','link');
+    getapi('https://socialpot.pythonanywhere.com/linkhandler', 'link');
 }
 
-function gettext(){
+function gettext() {
     undisplay()
-    getapi('https://socialpot.pythonanywhere.com/texthandler','text');
+    getapi('https://socialpot.pythonanywhere.com/texthandler', 'text');
 }
 
-function getfiles(){
+function getfiles() {
     undisplay()
-    for(let i ; i<10;i++){
-        createfilesitems()
-    }
+    getapi('https://socialpot.pythonanywhere.com/filehandler', 'file');
+    // getapi('http://127.0.0.1:8000/filehandler', 'file');
 }
 
-function createfilesitems(){
-    // creating elements
-    let displayarea = document.querySelector('.displayarea');
-    let displaydiv = document.createElement('div');
-    let nameinput = document.createElement('input');
-    let btndiv = document.createElement('div');
-    let download = document.createElement('button');
-    let view = document.createElement('button');
-    let delbtn = document.createElement('button');
-
-    // setting values
-    download.innerHTML = 'Download';
-    view.innerHTML = 'View';
-    delbtn.innerHTML = 'Delete';
-
-    // setting properties
-    if(window.innerWidth<576){
-        displaydiv.classList.add('filediv');
-    }else{
-        displaydiv.classList.add('displaydiv');
-    }
-    nameinput.disabled=true;
-    btndiv.classList.add('btndiv');
-    delbtn.setAttribute('type','del');
-
-    //arranging items
-    displayarea.appendChild(displaydiv) ;
-    displaydiv.appendChild(nameinput);
-    displaydiv.appendChild(btndiv);
-    btndiv.appendChild(download);
-    btndiv.appendChild(view);
-    btndiv.appendChild(delbtn);
-
-}
 
 // settings tab
-function settings(){
+function settings() {
     undisplay()
 
 }
@@ -149,13 +118,13 @@ function settings(){
 
 
 // logout function
-function logout(){
-    document.querySelector('.confirmlogout').style.display='flex'
+function logout() {
+    document.querySelector('.confirmlogout').style.display = 'flex'
 }
-function LO(param){
-    if(param===0){
-        document.querySelector('.confirmlogout').style.display ='none';
-    }if(param===1){
+function LO(param) {
+    if (param === 0) {
+        document.querySelector('.confirmlogout').style.display = 'none';
+    } if (param === 1) {
         localStorage.clear()
         window.location.href = 'auth.html';
     }
@@ -163,38 +132,45 @@ function LO(param){
 
 
 // open menu
-function openmenu(){
-    document.getElementById('menuicon').style.display='none';
-    document.getElementById('closeicon').style.display='block';
-    document.querySelector('.leftpane').style.display='block';
+function openmenu() {
+    document.getElementById('menuicon').style.display = 'none';
+    document.getElementById('closeicon').style.display = 'block';
+    document.querySelector('.leftpane').style.display = 'block';
 }
-function closemenu(){
-    document.getElementById('menuicon').style.display='block';
-    document.getElementById('closeicon').style.display='none';
-    document.querySelector('.leftpane').style.display='none';
+function closemenu() {
+    document.getElementById('menuicon').style.display = 'block';
+    document.getElementById('closeicon').style.display = 'none';
+    document.querySelector('.leftpane').style.display = 'none';
 }
 
 
 // adjusting the keep files page
-if(window.innerWidth<576){
+if (window.innerWidth < 576) {
     document.getElementById('keepfilediv').children[0].classList.remove('displaydiv');
     document.getElementById('keepfilediv').children[0].classList.add('keepfilediv');
-    document.getElementById('keepfilediv').parentElement.style.alignItems='flex-start';
+    document.getElementById('keepfilediv').parentElement.style.alignItems = 'flex-start';
 }
 
 
-function copyvalue(param){
-    navigator.clipboard.writeText(param).then(()=>{
-        document.getElementById('statusgreen').innerHTML ='Item copied ';
+function copyvalue(param) {
+    navigator.clipboard.writeText(param).then(() => {
+        document.getElementById('statusgreen').innerHTML = 'Item copied ';
     })
 }
 
-function del(param,item){
-    console.log(param);
-    console.log(item);
-    deleteitems(item,param)
+function del(id, item) {
+    deleteitems(item, id)
 }
 
-function goto(param){
-    window.open(`${param}`,'_blank');
+function goto(param) {
+    window.open(`${param}`, '_blank');
+}
+
+
+// function to download files
+function downloadfile(url, filename) {
+    link = document.createElement('a');
+    link.setAttribute('href', url);
+    link.setAttribute('download', filename);
+    link.click();
 }

@@ -227,3 +227,10 @@ button[type='goback']{
   border: none;
 
 }
+
+
+/* download link */
+.downloadlink{
+  color: white;
+  text-decoration: none;
+}

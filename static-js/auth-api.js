@@ -126,7 +126,9 @@ function initlogin() {
 
 // logging in user
 async function logginguser() {
-    await fetch('https://socialpot.pythonanywhere.com/token', {
+    let url ='https://socialpot.pythonanywhere.com/token';
+    // let url ='http://127.0.0.1:8000/token';
+    await fetch(url, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
