@@ -1,9 +1,13 @@
 @media (max-width: 576px) {
+    .displayarea{
+        height: 85;
+    }
+
     .leftpane{
         display: none;
         position: absolute;
         top: 6vh;
-        /* left: -75vw; */
+        height: 85;
     }
     #keeplinkdiv,#keeptextdiv,#keepfilediv{
         flex-direction: column;
