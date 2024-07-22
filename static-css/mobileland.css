@@ -1,88 +1,121 @@
 @media (max-width: 576px) {
-    .displayarea{
-        height: 85;
-    }
+  .displayarea {
+    margin: 0px 5px;
+    background-color: #e6e7f9;
+    justify-content: center;
+    align-content: flex-start;
+    padding: 10px 0px;
+  }
+  .displayarea::-webkit-scrollbar {
+    display: none;
+  }
+  .displaydiv{
+    background-color: #f5f5ff;
+    border: 2px solid white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 0px 0px;
+  }
 
-    .leftpane{
-        display: none;
-        position: absolute;
-        top: 6vh;
-        height: 85;
-    }
-    #keeplinkdiv,#keeptextdiv,#keepfilediv{
-        flex-direction: column;
-    }
-    .displayimg{
-        width: 80vw;
-        height: auto;
-        margin-top: 30px;
-        margin-bottom: 30px;
-    }
-    #menuicon{
-        display: block;
-    }
-    #menuicon,#closeicon{
-        position: absolute;
-        top: 1.5vh;
-        left: 4vw;
-    }
-    .filediv{
-        flex-wrap: wrap;
-        padding: 20px 13px;
-        margin: 20px 10px;
-        box-shadow: 0px 0px 2px 0px;
-    }
-    .filediv div{
-        margin-top: 13px;
-    }
-    .filediv button{
-        padding: 7px 7px;
-        margin: 5px 8px;
-        cursor: pointer;
-        color: white;
-        background-color: #6c63ff;
-        border: none;
-        border-radius: 3px;
-    }
-    .filediv input{
-        padding: 10px 5px;
-    }
-    button[type=del]{
-        color:black;
-        background-color: white;
-        border: 1px solid black;
-    }
-    .keepfilediv{
-        display: flex;
-        flex-direction: column;
-        padding: 10px 10px;
-        margin: 20px 0px;
-    }
-    .keepfilediv input{
-        width: 70vw;
-        padding: 10px 10px;
-    }
-    .keepfilediv > *{
-        margin: 10px 5px;
-    }
-    .keepfilediv h1{
-        font-size: 25px;
-        font-weight: 400;
-    }
-    .keepfilediv input[type='file']{
-        border: 1px solid rgb(153, 153, 153);
-        padding: 20px 20px;
-    }
-    .keepfilediv button{
-        padding: 10px 10px;
-        color: white;
-        background-color: #6c63ff;
-        border: none;
-        border-radius: 3px;
-    }
-    /* .confirmlogout > div{
-        padding: 20px 0px;
-    } */
-
-    
+  .leftpane {
+    display: none;
+    position: absolute;
+    top: 6vh;
+    height: 85;
+  }
+  #keeplinkdiv,
+  #keeptextdiv,
+  #keepfilediv {
+    flex-direction: column-reverse;
+  }
+  .displayimg {
+    width: 80vw;
+    height: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: none;
+  }
+  #menuicon {
+    display: block;
+  }
+  #menuicon,
+  #closeicon {
+    position: absolute;
+    top: 1.5vh;
+    left: 4vw;
+  }
+  .filediv {
+    flex-wrap: wrap;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin: 7px 10px;
+    background-color: #f5f5ff;
+    border: 2px solid white;
+    border-radius: 5px;
+    width: 80vw;
+  }
+  .filediv div {
+    margin-top: 13px;
+  }
+  .filediv button {
+    padding: 7px 7px;
+    margin: 5px 5px;
+    cursor: pointer;
+    color: white;
+    background-color: #6c63ff;
+    border: none;
+    border-radius: 3px;
+  }
+  .filediv input {
+    padding: 10px 5px;
+    background-color: white;
+    color: light-dark(rgb(84, 84, 84), rgb(170, 170, 170));
+    border: rgba(118, 118, 118, 0.3) 1px solid;
+  }
+  button[type="del"] {
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+  }
+  .keepfilediv {
+    border-radius: 8px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px;
+    margin: 20px 0px;
+    box-shadow: 0px 0px 2px 0px #f5f5ff;
+  }
+  .keepfilediv input {
+    width: 70vw;
+    padding: 10px 10px;
+  }
+  .keepfilediv > * {
+    margin: 10px 5px;
+  }
+  .keepfilediv h1 {
+    font-size: 25px;
+    font-weight: 400;
+  }
+  .keepfilediv input[type="file"] {
+    border: 1px solid rgb(153, 153, 153);
+    padding: 20px 20px;
+  }
+  .keepfilediv button {
+    padding: 10px 10px;
+    color: white;
+    background-color: #6c63ff;
+    border: none;
+    border-radius: 3px;
+  }
+  .footer {
+    height: 7vh;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    box-shadow: 0px 0px 0px 0px;
+    border-top: 1px solid black;
+  }
 }

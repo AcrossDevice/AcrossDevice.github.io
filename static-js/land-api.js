@@ -42,8 +42,8 @@ function Createitem(param, item) {
     let displaydiv = document.createElement('div');
     let input = document.createElement('input');
     let btndiv = document.createElement('div');
-    let copy = document.createElement('button');
-    let deletebtn = document.createElement('button');
+    let copy = document.createElement('img');
+    let deletebtn = document.createElement('img');
 
 
     // arranging the elements
@@ -54,7 +54,8 @@ function Createitem(param, item) {
     btndiv.appendChild(deletebtn);
 
     // setting values in btns
-    copy.innerHTML = 'Copy';
+    copy.setAttribute('class','icon');
+    copy.setAttribute('src','static/icon/copy-icon.png');
     if (item === 'link') {
         copy.onclick = function () {
             copyvalue(param.Link);
@@ -64,7 +65,8 @@ function Createitem(param, item) {
             copyvalue(param.Text);
         }
     }
-    deletebtn.innerHTML = 'Delete';
+    deletebtn.setAttribute('src','static/icon/delete-icon.png')
+    deletebtn.setAttribute('class','icon')
     deletebtn.onclick = function () {
         del(param.id, item)
     }
@@ -77,11 +79,16 @@ function Createitem(param, item) {
     }
 
     // adding styles
-    displaydiv.classList.add('displaydiv');
-    btndiv.classList.add('btndiv');
+    if (window.innerWidth < 576) {
+        displaydiv.classList.add('filediv');
+    } else {
+        displaydiv.classList.add('displaydiv');
+    }
+    btndiv.classList.add('icondiv');
     if (item === 'link') {
-        let go = document.createElement('button');
-        go.innerHTML = 'Visit';
+        let go = document.createElement('img');
+        go.setAttribute('class','icon');
+        go.setAttribute('src','static/icon/open-icon.png');
         go.onclick = function () {
             goto(param.Link)
         }
@@ -98,28 +105,29 @@ function createfilesitems(param) {
     let displaydiv = document.createElement('div');
     let nameinput = document.createElement('input');
     let btndiv = document.createElement('div');
-    let download = document.createElement('button');
-    let view = document.createElement('button');
-    let delbtn = document.createElement('button');
+    let download = document.createElement('img');
+    let view = document.createElement('img');
+    let delbtn = document.createElement('img');
     let link = document.createElement('a');
     url = 'https://socialpot.pythonanywhere.com' + param.File;
 
     // setting values
-    link.innerHTML = 'Download';
-    link.href = url;
-    link.download = 'hehe';
+    download.setAttribute('class','icon')
+    download.setAttribute('src','static/icon/download-icon.png')
     nameinput.value = param.Filename;
 
     download.onclick = function(){
         url = 'https://socialpot.pythonanywhere.com' + param.File;
         downloadfile(url,param.Filename)
     }
-    view.innerHTML = 'View';
+    view.setAttribute('class','icon');
+    view.setAttribute('src','static/icon/open-icon.png');
     view.onclick = function () {
         url = 'https://socialpot.pythonanywhere.com' + param.File;
         window.open(url, "_blank")
     }
-    delbtn.innerHTML = 'Delete';
+    delbtn.setAttribute('src','static/icon/delete-icon.png');
+    delbtn.setAttribute('class','icon');
     delbtn.onclick = function () {
         del(param.id,'file')
     }
@@ -132,7 +140,7 @@ function createfilesitems(param) {
         displaydiv.classList.add('displaydiv');
     }
     nameinput.disabled = true;
-    btndiv.classList.add('btndiv');
+    btndiv.classList.add('icondiv');
     delbtn.setAttribute('type', 'del');
 
     //arranging items

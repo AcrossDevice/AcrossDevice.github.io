@@ -1,0 +1,22 @@
+.icon{
+    height: 40px;
+    width: auto;
+    background-color: white;
+    padding: 7px 7px;
+    border-radius: 38%;
+    border: rgba(118, 118, 118, 0.3)1px solid;
+}
+
+
+.icondiv{
+    padding: 0px 10px;
+    margin-left: auto;
+}
+
+.icondiv > *{
+    margin: 0px 3px;
+}
+
+.icon:hover{
+    background-color: rgb(211, 210, 210);
+}

@@ -48,6 +48,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+// onchange of screen width
+window.addEventListener('resize',()=>{
+    location.reload()
+})
+
+
+
 
 
 // keep links is active
