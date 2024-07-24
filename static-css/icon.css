@@ -20,3 +20,20 @@
 .icon:hover{
     background-color: rgb(211, 210, 210);
 }
+
+.iconbtnholder{
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-evenly;
+}
+
+.iconbtndiv{
+    padding: 13px 15px;
+    background-color: #e6e7f9;
+    border-radius: 100%;
+}
+.iconbtn{
+    height: 4vh;
+    width: auto;
+}
+

@@ -48,16 +48,17 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-// onchange of screen width
-
-
-
-
 
 // keep links is active
 if (window.innerWidth < 576) {
-    undisplay()
+    document.getElementById('keeplinkdiv').style.display ='none';
+    document.querySelector('.leftpane').children[2].children[1].children[0].classList.add('active');
+    document.querySelector('.leftpane').children[1].style.display='none';
+    document.querySelector('.leftpane').children[0].style.display='none';
+
 } else {
+    document.getElementById('mobilelandingpage').style.display ='none';
+    document.querySelector('.leftpane').children[2].children[1].children[0].style.display ='none';
     document.querySelector('.leftpane').children[0].children[1].children[0].classList.add('active');
 }
 
@@ -68,7 +69,6 @@ document.querySelectorAll('.menubtn').forEach(item => {
     item.addEventListener('click', () => {
         removeactive();
         if (window.innerWidth < 576) {
-
             closemenu()
         }
         item.classList.add('active');
@@ -89,6 +89,10 @@ function undisplay() {
     array.forEach(item => {
         item.style.display = 'none';
     })
+}
+function home(){
+    undisplay()
+    document.querySelector('.displayarea').children[0].style.display = 'block';
 }
 
 function Navigate(child) {
@@ -139,12 +143,20 @@ function LO(param) {
 function openmenu() {
     document.getElementById('menuicon').style.display = 'none';
     document.getElementById('closeicon').style.display = 'block';
-    document.querySelector('.leftpane').style.display = 'block';
+    document.querySelector('.leftpane').style.display ='flex';
+    setTimeout(()=>{
+        document.querySelector('.leftpane').style.transform = 'translate(0vw,0vw)';
+    },250);
+    document.getElementById('statusgreen').innerHTML ='';
+    document.getElementById('statusred').innerHTML ='';
 }
 function closemenu() {
     document.getElementById('menuicon').style.display = 'block';
     document.getElementById('closeicon').style.display = 'none';
-    document.querySelector('.leftpane').style.display = 'none';
+    document.querySelector('.leftpane').style.transform = 'translate(-100vw,0vw)';
+    setTimeout(()=>{
+        document.querySelector('.leftpane').style.display ='none';
+    },250);
 }
 
 
