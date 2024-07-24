@@ -25,7 +25,7 @@
 }
 
 .landcardimg{
-    height: 7vh;
+    height: 5vh;
     width: auto;
     margin-bottom: 5px;
 }
@@ -46,6 +46,8 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    flex-wrap: wrap;
+    padding: 5px 20px;
 }
 
 .workplacediv :last-child{
@@ -57,11 +59,11 @@
     background-color: black;
     border: none;
     border-radius: 8px;
-    padding: 10px 15px;
+    padding: 15px 15px;
     margin-bottom: 10px;
 }
 
 
 .workplaceimg{
-    height: 25vh;
+    height: 15vh;
 }
