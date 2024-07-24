@@ -1,0 +1,67 @@
+#mobilelandingpage{
+    padding: 0px 10px;
+}
+#mobilelandingpage > *{
+    margin: 15px 0px;
+    width: 90vw;
+}
+.landdiv{
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 20px 20px;
+    background-color: #f5f5ff;
+}
+
+.arrangehorizontal{
+    display: flex;
+    flex-direction: row;
+}
+.arrangehorizontal >:first-child{
+    margin-right: 10px;
+}
+
+.arrangehorizontal >:last-child{
+    margin-left: 10px;
+}
+
+.landcardimg{
+    height: 7vh;
+    width: auto;
+    margin-bottom: 5px;
+}
+
+.workplacediv{
+    padding: 5px 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.workplacelabel{
+    margin-bottom:10px ;
+    margin-left: 2px;
+}
+
+.workplacediv :last-child,.workplacediv :nth-child(2){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.workplacediv :last-child{
+    margin-top: 15px;
+}
+
+.mobilelandbtn{
+    color: white;
+    background-color: black;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+}
+
+
+.workplaceimg{
+    height: 25vh;
+}

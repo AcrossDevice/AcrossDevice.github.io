@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Across Device</title>
     <link rel="stylesheet" href="static-css/land.css">
+    <link rel="stylesheet" href="static-css/land-mobile-landingpage.css">
     <link rel="stylesheet" href="static-css/mobileland.css">
     <link rel="stylesheet" href="static-css/icon.css">
     <link rel="stylesheet"
@@ -41,19 +42,19 @@
             <div class="keepitems">
                 <h3>Keep Items</h3>
                 <ul>
-                    <li class="menubtn" onclick="Navigate(0)">
+                    <li class="menubtn" onclick="Navigate(1)">
                         <span class="material-symbols-outlined">
                             link
                         </span>
                         <p class="menutext">Keep Links</p>
                     </li>
-                    <li class="menubtn" onclick="Navigate(1)">
+                    <li class="menubtn" onclick="Navigate(2)">
                         <span class="material-symbols-outlined">
                             text_fields
                         </span>
                         <p class="menutext">Keep Text</p>
                     </li>
-                    <li class="menubtn" onclick="Navigate(2)">
+                    <li class="menubtn" onclick="Navigate(3)">
                         <span class="material-symbols-outlined">
                             attachment
                         </span>
@@ -87,11 +88,17 @@
             <div>
                 <h3>Account</h3>
                 <ul>
+                    <li class="menubtn" onclick="home()" id="home">
+                        <span class="material-symbols-outlined">
+                            home
+                        </span>
+                        <p class="menutext">Home</p>
+                    </li>
                     <li class="menubtn" onclick="settings()">
                         <span class="material-symbols-outlined">
-                            settings
+                            person
                         </span>
-                        <p class="menutext">Settings</p>
+                        <p class="menutext">Account</p>
                     </li>
                     <li class="menubtn" onclick="logout()">
                         <span class="material-symbols-outlined">
@@ -104,13 +111,58 @@
             </div>
         </section>
         <section class="displayarea">
+            <section id="mobilelandingpage">
+                <div class="landdiv">
+                    <label for="">Keep Items</label>
+                    <div class="iconbtnholder">
+                        <div class="iconbtndiv" onclick="Navigate(1)">
+                            <img src="static/icon/link-icon.png" class="iconbtn">
+                        </div>
+                        <div class="iconbtndiv" onclick="Navigate(2)">
+                            <img src="static/icon/text-icon.png" class="iconbtn">
+                        </div>
+                        <div class="iconbtndiv" onclick="Navigate(3)">
+                            <img src="static/icon/file-icon.png" class="iconbtn">
+                        </div>
+                    </div>
+                </div>
+                <div class="arrangehorizontal">
+                    <div class="landdiv" onclick="getlinks()">
+                        <img src="static/icon/link.png" class="landcardimg">
+                        <label for="">Access Links</label>
+                    </div>
+                    <div class="landdiv" onclick="gettext()">
+                        <img src="static/icon/text.png" class="landcardimg">
+                        <label for="">Access Text</label>
+                    </div>
+                    <div class="landdiv" onclick="getfiles()">
+                        <img src="static/icon/file.png" class="landcardimg">
+                        <label for="">Access Files</label>
+                    </div>
+                </div>
+                <div class="workplacediv">
+                    <label class="workplacelabel">Collaborate With Your Colleagues</label>
+                    <div class="landdiv">
+                        <img src="static/icon/workplace.png" class='workplaceimg'>
+                        <label for="Join A Workplace">Join a Workplace</label>
+                        <button class="mobilelandbtn">Click Here</button>
+                    </div>
+                    <div class="landdiv">
+                        <img src="static/icon/join-workplace.png" class="workplaceimg">
+                        <label for="Join A Workplace">Create a Workplace</label>
+                        <button class="mobilelandbtn">Click Here</button>
+                    </div>
+                </div>
+
+            </section>
             <div id="keeplinkdiv">
                 <img src="static/link.png" alt="" class="displayimg" id="keeplinkimg">
                 <div class="displaydiv">
                     <h1>Keep Links</h1>
                     <label>Paste Your Link Here :</label>
                     <input type="text" id="link">
-                    <button onclick="postapi('https://socialpot.pythonanywhere.com//linkhandler','link')">Submit</button>
+                    <button
+                        onclick="postapi('https://socialpot.pythonanywhere.com//linkhandler','link')">Submit</button>
                 </div>
             </div>
             <div id="keeptextdiv">
@@ -134,9 +186,9 @@
             </div>
         </section>
     </main>
-    <footer>
+    <footer id="footer">
         <!-- <p>Status:</p> -->
-        <p style="color: green;" id="statusgreen" ></p>
+        <p style="color: green;" id="statusgreen"></p>
         <p style="color: red;" id="statusred"></p>
     </footer>
     <script src="static-js/land.js"></script>
