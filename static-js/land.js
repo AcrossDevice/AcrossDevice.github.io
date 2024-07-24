@@ -190,3 +190,10 @@ function downloadfile(url, filename) {
     link.setAttribute('download', filename);
     link.click();
 }
+
+
+// onpressing back in browser
+window.onpopstate = function(event){
+    home()
+}
+history.pushState({},'');
