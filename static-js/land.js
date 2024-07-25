@@ -145,7 +145,8 @@ if (window.innerWidth <= 576) {
 
 // function handling status
 function handleStatus(param, message) {
-    if (message === 'undefined') {
+    console.log(message)
+    if (message == undefined) {
         checkaccess()
         handleStatus(false, 'Too many requests, kindly wait for few seconds and try again...');
     } else {
