@@ -12,25 +12,29 @@ function isTokenExpired(token) {
     return tokenExp < Date.now() / 1000;
 }
 
-async function refreshAccessToken(refreshToken) {
-    try {
-        const response = await fetch('https://socialpot.pythonanywhere.com/tokenrefresh', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ refresh: refreshToken })
-        });
-        if (!response.ok) {
-            throw new Error('Token refresh failed');
+function refreshAccessToken(refreshToken) {
+    fetch('https://socialpot.pythonanywhere.com/tokenrefresh', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            'refresh': localStorage.getItem('refresh_token')
+        })
+    }).then(response => {
+        return response.json()
+    }).then(data => {
+        if (data.access) {
+            localStorage.setItem('refresh_token', data.refresh);
+            localStorage.setItem('access_token', data.access);
+            window.location.href = 'landingpage.html';
         }
-        const data = await response.json();
-        localStorage.setItem('access_token', data.access);
-        localStorage.setItem('refresh_token',data.refresh);
-    } catch (error) {
-        console.error('Token refresh error:', error);
-    }
+
+    }).catch(error => {
+        console.error(error);
+    })
 }
+
 document.addEventListener('DOMContentLoaded', function () {
     const accessToken = localStorage.getItem('access_token');
 
@@ -39,8 +43,6 @@ document.addEventListener('DOMContentLoaded', function () {
         if (localStorage.getItem('refresh_token')) {
             refreshAccessToken(localStorage.getItem('refresh_token'));
         }
-
-
     } else {
         // Access token is valid, proceed with your application logic
         console.log('Access token valid');

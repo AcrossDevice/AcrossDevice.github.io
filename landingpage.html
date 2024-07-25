@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="static-css/icon.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-
+    <script src="static-js/authorisation.js"></script>
 </head>
 
 <body>
@@ -191,6 +191,20 @@
         <p style="color: green;" id="statusgreen"></p>
         <p style="color: red;" id="statusred"></p>
     </footer>
+    <script>
+        // keep links is active
+        if (window.innerWidth < 576) {
+            document.getElementById('keeplinkdiv').style.display = 'none';
+            document.querySelector('.leftpane').children[2].children[1].children[0].classList.add('active');
+            document.querySelector('.leftpane').children[1].style.display = 'none';
+            document.querySelector('.leftpane').children[0].style.display = 'none';
+
+        } else {
+            document.getElementById('mobilelandingpage').style.display = 'none';
+            document.querySelector('.leftpane').children[2].children[1].children[0].style.display = 'none';
+            document.querySelector('.leftpane').children[0].children[1].children[0].classList.add('active');
+        }
+    </script>
     <script src="static-js/land.js"></script>
     <script src="static-js/land-api.js"></script>
 </body>

@@ -1,69 +1,3 @@
-// funtion to check expiry of token
-function isTokenExpired(token) {
-    if (!token) {
-        return true;
-    }
-    const tokenParts = token.split('.');
-    if (tokenParts.length !== 3) {
-        return true;
-    }
-    const payload = JSON.parse(atob(tokenParts[1]));
-    const tokenExp = payload.exp;
-    return tokenExp < Date.now() / 1000;
-}
-
-
-async function refreshAccessToken(refreshToken) {
-    try {
-        const response = await fetch('https://socialpot.pythonanywhere.com/tokenrefresh', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ refresh: refreshToken })
-        });
-        if (!response.ok) {
-            throw new Error('Token refresh failed');
-        }
-        const data = await response.json();
-        localStorage.setItem('access_token', data.access);
-        localStorage.setitem('refresh_token', data.refresh);
-    } catch (error) {
-        console.error('Token refresh error:', error);
-        localStorage.clear()
-        window.location.href = 'auth.html';
-    }
-}
-document.addEventListener('DOMContentLoaded', function () {
-    const accessToken = localStorage.getItem('access_token');
-
-    if (isTokenExpired(accessToken)) {
-        console.log('Access token expired');
-        if (localStorage.getItem('refresh_token')) {
-            refreshAccessToken(localStorage.getItem('refresh_token'));
-        }
-        else {
-            window.location.href = 'auth.html';
-        }
-    }
-});
-
-
-// keep links is active
-if (window.innerWidth < 576) {
-    document.getElementById('keeplinkdiv').style.display ='none';
-    document.querySelector('.leftpane').children[2].children[1].children[0].classList.add('active');
-    document.querySelector('.leftpane').children[1].style.display='none';
-    document.querySelector('.leftpane').children[0].style.display='none';
-
-} else {
-    document.getElementById('mobilelandingpage').style.display ='none';
-    document.querySelector('.leftpane').children[2].children[1].children[0].style.display ='none';
-    document.querySelector('.leftpane').children[0].children[1].children[0].classList.add('active');
-}
-
-
-
 // to add active class to menu btns
 document.querySelectorAll('.menubtn').forEach(item => {
     item.addEventListener('click', () => {
@@ -79,7 +13,7 @@ function removeactive() {
     document.querySelectorAll('.menubtn').forEach(item => {
         item.classList.remove('active');
     })
-    document.getElementById('statusgreen').innerHTML = '';
+    handleStatus(true, "")
 }
 
 // to remove all children from displayarea
@@ -90,7 +24,7 @@ function undisplay() {
         item.style.display = 'none';
     })
 }
-function home(){
+function home() {
     undisplay()
     document.querySelector('.displayarea').children[0].style.display = 'block';
 }
@@ -120,7 +54,6 @@ function getfiles() {
 // settings tab
 function settings() {
     undisplay()
-
 }
 
 
@@ -143,20 +76,19 @@ function LO(param) {
 function openmenu() {
     document.getElementById('menuicon').style.display = 'none';
     document.getElementById('closeicon').style.display = 'block';
-    document.querySelector('.leftpane').style.display ='flex';
-    setTimeout(()=>{
+    document.querySelector('.leftpane').style.display = 'flex';
+    setTimeout(() => {
         document.querySelector('.leftpane').style.transform = 'translate(0vw,0vw)';
-    },250);
-    document.getElementById('statusgreen').innerHTML ='';
-    document.getElementById('statusred').innerHTML ='';
+    }, 250);
+    handleStatus(true, '')
 }
 function closemenu() {
     document.getElementById('menuicon').style.display = 'block';
     document.getElementById('closeicon').style.display = 'none';
     document.querySelector('.leftpane').style.transform = 'translate(-100vw,0vw)';
-    setTimeout(()=>{
-        document.querySelector('.leftpane').style.display ='none';
-    },250);
+    setTimeout(() => {
+        document.querySelector('.leftpane').style.display = 'none';
+    }, 250);
 }
 
 
@@ -170,7 +102,7 @@ if (window.innerWidth < 576) {
 
 function copyvalue(param) {
     navigator.clipboard.writeText(param).then(() => {
-        document.getElementById('statusgreen').innerHTML = 'Item copied ';
+        handleStatus(true, 'Item Copied')
     })
 }
 
@@ -185,15 +117,50 @@ function goto(param) {
 
 // function to download files
 function downloadfile(url, filename) {
-    link = document.createElement('a');
-    link.setAttribute('href', url);
-    link.setAttribute('download', filename);
-    link.click();
+    fetch(url)
+        .then(response => response.blob())
+        .then(blob => {
+            handleStatus(true,'downloading...')
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = filename;
+            a.click();
+            URL.revokeObjectURL(a.href);
+
+        })
+        .catch(error => console.error('Error downloading the file:', error));
 }
 
 
 // onpressing back in browser
-window.onpopstate = function(event){
-    home()
+if (window.innerWidth <= 576) {
+    window.history.replaceState(null, document.title, window.location.href);
+    window.addEventListener('popstate', (event) => {
+        home();
+        window.history.pushState(null, document.title, window.location.href);
+    });
+    window.history.pushState(null, document.title, window.location.href);
 }
-history.pushState({},'');
+
+
+// function handling status
+function handleStatus(param, message) {
+    if (message === 'undefined') {
+        checkaccess()
+        handleStatus(false, 'Too many requests, kindly wait for few seconds and try again...');
+    } else {
+        switch (param) {
+            case true:
+                document.getElementById('statusred').innerHTML = '';
+                document.getElementById('statusgreen').innerHTML = message;
+                break;
+            case false:
+                document.getElementById('statusgreen').innerHTML = '';
+                document.getElementById('statusred').innerHTML = message;
+                break;
+            default:
+                document.getElementById('statusgreen').innerHTML = '';
+                document.getElementById('statusred').innerHTML = 'some error occured';
+        }
+    }
+}

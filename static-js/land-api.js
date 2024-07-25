@@ -11,10 +11,10 @@ function getapi(param, item) {
     }).then(data => {
         if (data.status === 200) {
             if (data.data.length === 0) {
-                document.getElementById('statusgreen').innerHTML = 'No items stored';
+                handleStatus(true,'No items Stored')
             }
             else {
-                document.getElementById('statusgreen').innerHTML = data.message;
+                handleStatus(true,data.message)
                 array = data.data;
                 if (item === 'file') {
                     array.forEach(element => {
@@ -27,8 +27,7 @@ function getapi(param, item) {
                 }
             }
         } else {
-            document.getElementById('statusgreen').innerHTML = '';
-            document.getElementById('statusred').innerHTML = data.message;
+            handleStatus(false,data.message)
         }
     }).catch(error => {
         console.error('Error:', error);
@@ -174,12 +173,11 @@ function postapi(param) {
         return response.json()
     }).then(data => {
         if (data.status === 200) {
-            document.getElementById('statusgreen').innerHTML = data.message;
+            handleStatus(true,data.message)
             document.getElementById('text').value = '';
             document.getElementById('link').value = '';
         } else {
-            document.getElementById('statusgreen').innerHTML = '';
-            document.getElementById('statusred').innerHTML = data.message;
+            handleStatus(false,data.message)
         }
     }).catch(error => {
         console.error(error);
@@ -195,7 +193,7 @@ function getfiletopost() {
     formdata.append('File',file);
     formdata.append('Filename',`${document.getElementById('filename').value}`);
     postfiles(formdata)
-    document.getElementById('statusgreen').innerHTML = 'Uploading ...'
+    handleStatus(true,'Uploading...')
 }
 
 
@@ -214,9 +212,11 @@ async function postfiles(formdata) {
         return response.json()
     }).then(data =>{
         if(data.status ===200){
-            document.getElementById('statusgreen').innerHTML =data.message;
+            handleStatus(true,data.message)
             document.getElementById('file').innerHTML = '';
             document.getElementById('filename').innerHTML='';
+        }else{
+            handleStatus('','')
         }
     }).catch(error=>{
         console.error(error);
@@ -249,10 +249,9 @@ function deleteitems(item, id) {
         if (data.status === 200) {
             undisplay()
             getapi(url, item)
-            document.getElementById('statusgreen').innerHTML = data.message;
+            handleStatus(true,data.message)
         } else {
-            document.getElementById('statusgreen').innerHTML = '';
-            document.getElementById('statusred').innerHTML = data.message;
+            handleStatus(false,data.message)
         }
     })
 }
