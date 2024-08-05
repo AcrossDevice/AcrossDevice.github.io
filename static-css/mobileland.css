@@ -9,7 +9,7 @@
   .displayarea::-webkit-scrollbar {
     display: none;
   }
-  .displaydiv{
+  .displaydiv {
     background-color: #f5f5ff;
     border: 2px solid white;
     border-radius: 5px;
@@ -20,7 +20,7 @@
     display: none;
     position: absolute;
     top: 6vh;
-    height: 85;
+    height: 89vh;
     border-top: 1px solid rgb(240, 240, 240);
     border-bottom: none;
     left: 100;
@@ -113,13 +113,26 @@
     border: none;
     border-radius: 3px;
   }
-  .footer {
-    height: 7vh;
+  footer {
     position: fixed;
-    top: 0px;
-    left: 0px;
+    top: 91vh;
     width: 100vw;
-    box-shadow: 0px 0px 0px 0px;
-    border-top: 1px solid black;
+    height: 9vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #f5f5ff;
+    box-shadow: 0px 0px 2px 0px #f5f5ff;
+    border-top: 1px solid grey ;
+  }
+  .footerlabel{
+    font-size: 15px;
+  }
+  footer > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px 5px;
   }
 }

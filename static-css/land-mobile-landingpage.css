@@ -10,6 +10,7 @@
     border-radius: 10px;
     padding: 20px 20px;
     background-color: #f5f5ff;
+    box-shadow: 3px 3px 15px #babecc;
 }
 
 .arrangehorizontal{
@@ -36,22 +37,18 @@
     flex-direction: column;
 }
 
+.workplacediv > *{
+    margin-bottom: 15px;
+}
 .workplacelabel{
     margin-bottom:10px ;
     margin-left: 2px;
 }
 
-.workplacediv :last-child,.workplacediv :nth-child(2){
+.workplaceinnerdiv {
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
-    flex-wrap: wrap;
-    padding: 5px 20px;
-}
-
-.workplacediv :last-child{
-    margin-top: 15px;
+    margin: 20px 0px;
 }
 
 .mobilelandbtn{
@@ -64,6 +61,38 @@
 }
 
 
+
+.workplaceinnerdiv{
+    display: flex;
+    flex-direction: row;
+}
+
+.workplacebtndiv{
+    margin: 20px 0px;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-around; */
+}
+
+.workplacebtndiv :last-child{
+    margin-left: auto;   
+}
+
+.workplacebtn{
+    padding: 7px 50px;
+    border: 1px solid black;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+}
+
 .workplaceimg{
-    height: 15vh;
+    height: 11vh;
+}
+
+
+
+input{
+    padding: 10px 10px;
+    margin: 10px 0px;
 }

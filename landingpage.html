@@ -94,7 +94,13 @@
                         </span>
                         <p class="menutext">Home</p>
                     </li>
-                    <li class="menubtn" onclick="settings()">
+                    <li class="menubtn" onclick="workplace()" id="home">
+                        <span class="material-symbols-outlined">
+                            work
+                        </span>
+                        <p class="menutext">Workplace</p>
+                    </li>
+                    <li class="menubtn" onclick="account()">
                         <span class="material-symbols-outlined">
                             person
                         </span>
@@ -110,7 +116,7 @@
                 </ul>
             </div>
         </section>
-        <section class="displayarea">
+        <section class="displayarea" id="displayarea">
             <section id="mobilelandingpage">
                 <div class="landdiv">
                     <label for="">Keep Items</label>
@@ -140,18 +146,18 @@
                         <label for="">Access Files</label>
                     </div>
                 </div>
-                <div class="workplacediv">
-                    <label class="workplacelabel">Collaborate With Your Colleagues</label>
-                    <div class="landdiv">
+                <div class="arrangehorizontal">
+                    <div class="landdiv" onclick="ToggleCollab('Join')" id="joincollab">
                         <img src="static/icon/workplace.png" class='workplaceimg'>
-                        <label for="Join A Workplace">Join a Workplace</label>
-                        <button class="mobilelandbtn">Click Here</button>
+                        <label>Join a Collaboration</label>
                     </div>
-                    <div class="landdiv">
+                    <div class="landdiv" onclick="ToggleCollab('Create')" id="createcollab">
                         <img src="static/icon/join-workplace.png" class="workplaceimg">
-                        <label for="Join A Workplace">Create a Workplace</label>
-                        <button class="mobilelandbtn">Click Here</button>
+                        <label>Create a Collaboration</label>
                     </div>
+                </div>
+                <div class="workplacediv" id="workplacediv">
+                    <label class="workplacelabel">Workplace</label>
                 </div>
 
             </section>
@@ -184,12 +190,29 @@
                     <button onclick="getfiletopost()">Submit</button>
                 </div>
             </div>
+            <div>
+                <p style="color: green;" id="statusgreen"></p>
+                <p style="color: red;" id="statusred"></p>
+            </div>
         </section>
     </main>
     <footer id="footer">
-        <!-- <p>Status:</p> -->
-        <p style="color: green;" id="statusgreen"></p>
-        <p style="color: red;" id="statusred"></p>
+        <div onclick="home()">
+            <img src="static/icon/home-icon.png" class="footericon">
+            <label class="footerlabel">Home</label>
+        </div>
+        <div onclick="workplace()">
+            <img src="static/icon/workplace-icon.png" class="footericon">
+            <label class="footerlabel">Workplace</label>
+        </div>
+        <div onclick="account()">
+            <img src="static/icon/account-icon.png" class="footericon">
+            <label class="footerlabel">Account</label>
+        </div>
+        <div onclick="logout()">
+            <img src="static/icon/logout-icon.png" class="footericon">
+            <label class="footerlabel">Logout</label>
+        </div>
     </footer>
     <script>
         // keep links is active

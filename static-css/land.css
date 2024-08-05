@@ -237,3 +237,6 @@ button[type='goback']{
 }
 
 
+footer > div{
+  display: none;
+}

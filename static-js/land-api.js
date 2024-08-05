@@ -11,6 +11,7 @@ function getapi(param, item) {
     }).then(data => {
         if (data.status === 200) {
             if (data.data.length === 0) {
+                empty(true);
                 handleStatus(true,'No items Stored')
             }
             else {
