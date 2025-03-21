@@ -194,6 +194,7 @@ function getfiletopost() {
     formdata.append('File',file);
     formdata.append('Filename',`${document.getElementById('filename').value}`);
     postfiles(formdata)
+    alert('Uploading file...')
     handleStatus(true,'Uploading...')
 }
 
@@ -219,8 +220,10 @@ async function postfiles(formdata) {
         }else{
             handleStatus('','')
         }
+        alert('file upload successful!')
     }).catch(error=>{
         console.error(error);
+        alert('some error occured')
     })
 }
 
